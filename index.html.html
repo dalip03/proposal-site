@@ -1,0 +1,2408 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Capella × EduInfra — Partnership Proposal</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* =================================================================
+   CAPELLA × EDUINFRA · Partnership Proposal
+   Aesthetic: Minimalist · Architectural · Institutional
+   Palette: Deep Slate / Industrial White / Terracotta accent
+   ================================================================= */
+:root{
+  --slate:#0F1B2D;
+  --slate-2:#1A2740;
+  --slate-3:#2B3856;
+  --graphite:#4A5566;
+  --graphite-2:#6B7380;
+  --white:#F7F7F4;
+  --white-2:#EEEDE7;
+  --paper:#FBFBF8;
+  --rule:#D9D8D2;
+  --rule-2:#E7E6E0;
+  --terracotta:#C7542B;
+  --terracotta-2:#E57345;
+  --terracotta-3:#A0421E;
+  --signal:#B0392C;
+  --sans:'Inter',ui-sans-serif,system-ui,-apple-system,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);background:var(--white);color:var(--slate);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  font-feature-settings:"ss01","cv11";
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+img{display:block;max-width:100%}
+
+/* ===== App shell ===== */
+.app{display:grid;grid-template-columns:300px 1fr;min-height:100vh}
+
+/* ===== Sidebar ===== */
+.sidebar{
+  position:sticky;top:0;height:100vh;
+  background:var(--slate);color:var(--white);
+  display:flex;flex-direction:column;
+  border-right:1px solid rgba(255,255,255,.06);
+}
+.sb-brand{padding:32px 32px 28px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sb-cobrand{display:flex;align-items:center;gap:14px}
+.sb-cobrand .ei{
+  width:34px;height:34px;border:1px solid rgba(255,255,255,.35);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:.05em;
+  position:relative;
+}
+.sb-cobrand .ei::after{
+  content:"";position:absolute;left:4px;right:4px;bottom:4px;height:2px;background:var(--terracotta);
+}
+.sb-cobrand .x{font-family:var(--mono);font-size:11px;opacity:.4}
+.sb-cobrand .cap{font-family:var(--sans);font-weight:600;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+.sb-cobrand .cap .dot{display:inline-block;width:6px;height:6px;background:var(--terracotta);border-radius:50%;margin-right:6px;vertical-align:middle;transform:translateY(-1px)}
+.sb-doc{margin-top:24px;display:flex;flex-direction:column;gap:6px}
+.sb-doc .meta{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--terracotta-2)}
+.sb-doc .title{font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.35;color:var(--white);opacity:.85}
+
+.sb-nav{flex:1;padding:16px 0;overflow-y:auto}
+.sb-nav ol{list-style:none;counter-reset:sec}
+.sb-nav li{counter-increment:sec}
+.sb-nav a{
+  display:flex;align-items:baseline;gap:14px;
+  padding:12px 32px;
+  font-family:var(--sans);font-size:13.5px;font-weight:500;line-height:1.3;
+  color:var(--white);opacity:.55;
+  border-left:2px solid transparent;
+  transition:opacity .2s, border-color .2s, background .2s, color .2s;
+}
+.sb-nav a .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--terracotta-2);width:24px;flex-shrink:0}
+.sb-nav a:hover{opacity:.9;background:rgba(255,255,255,.03)}
+.sb-nav a.active{
+  opacity:1;border-left-color:var(--terracotta);
+  background:rgba(199,84,43,.08);
+  color:var(--white);
+}
+.sb-nav a.active .n{color:var(--terracotta-2)}
+
+.sb-foot{padding:24px 32px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;gap:16px}
+.sb-cta{
+  display:inline-flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;
+  background:var(--terracotta);color:var(--white);
+  font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.02em;
+  transition:background .2s, transform .2s;
+  border:1px solid var(--terracotta);
+}
+.sb-cta:hover{background:var(--terracotta-3);border-color:var(--terracotta-3)}
+.sb-cta .arrow{font-family:var(--mono);margin-left:10px}
+.sb-foot .sig{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--white);opacity:.4;display:flex;justify-content:space-between}
+
+/* ===== Main ===== */
+.main{background:var(--white);min-width:0}
+
+/* ===== Section base ===== */
+section.sec{
+  padding:120px 96px 120px;
+  border-bottom:1px solid var(--rule);
+  position:relative;
+  scroll-margin-top:0;
+}
+section.sec#s-compare{padding-left:48px;padding-right:48px}
+section.sec.dark{background:var(--slate);color:var(--white);border-bottom-color:rgba(255,255,255,.08)}
+section.sec.paper{background:var(--paper)}
+.container{max-width:1100px;margin:0 auto}
+.sec-head{display:flex;flex-direction:column;gap:20px;margin-bottom:56px}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--graphite);display:inline-flex;align-items:center;gap:14px;
+}
+.dark .eyebrow{color:var(--white);opacity:.6}
+.eyebrow .bar{width:40px;height:1px;background:var(--terracotta)}
+.eyebrow .sec-num{color:var(--terracotta)}
+.dark .eyebrow .sec-num{color:var(--terracotta-2)}
+
+h1,h2,h3,h4{font-family:var(--sans);letter-spacing:-0.015em;font-weight:700}
+h2.title{font-size:64px;line-height:1.05;font-weight:700;letter-spacing:-0.025em;max-width:900px}
+h3.title{font-size:40px;line-height:1.1;font-weight:700;letter-spacing:-0.02em}
+h4.title{font-size:24px;line-height:1.2;font-weight:700;letter-spacing:-0.01em}
+.accent{color:var(--terracotta)}
+.dark .accent{color:var(--terracotta-2)}
+.lede{font-family:var(--sans);font-weight:400;font-size:20px;line-height:1.55;color:var(--graphite);max-width:780px}
+.dark .lede{color:var(--white);opacity:.75}
+.body{font-family:var(--sans);font-size:16.5px;line-height:1.65;color:var(--graphite)}
+.dark .body{color:var(--white);opacity:.72}
+.body strong{color:var(--slate);font-weight:700}
+.dark .body strong{color:var(--white);opacity:1}
+.small{font-family:var(--sans);font-size:14px;line-height:1.55;color:var(--graphite-2)}
+.dark .small{color:var(--white);opacity:.6}
+.meta-lbl{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--graphite)}
+.dark .meta-lbl{color:var(--white);opacity:.55}
+.meta-lbl.oc{color:var(--terracotta)}
+.dark .meta-lbl.oc{color:var(--terracotta-2)}
+
+.rule{height:1px;background:var(--rule);width:100%}
+.dark .rule{background:rgba(255,255,255,.12)}
+.rule-tc{height:2px;background:var(--terracotta);width:56px}
+
+.grid{display:grid;gap:32px}
+.g-2{grid-template-columns:repeat(2,1fr)}
+.g-3{grid-template-columns:repeat(3,1fr)}
+.g-4{grid-template-columns:repeat(4,1fr)}
+.grid-hair{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.dark .grid-hair{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.12)}
+.grid-hair>*{background:var(--white)}
+.dark .grid-hair>*{background:var(--slate)}
+.paper .grid-hair>*{background:var(--paper)}
+
+/* ===== Cover hero ===== */
+.hero{
+  min-height:100vh;
+  background:var(--slate);color:var(--white);
+  position:relative;overflow:hidden;
+  padding:80px 96px;
+  display:flex;flex-direction:column;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.hero-grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size:80px 80px;
+  opacity:.8;
+}
+.hero-halo{
+  position:absolute;top:-300px;right:-200px;width:900px;height:900px;border-radius:50%;
+  background:var(--terracotta);opacity:.10;filter:blur(140px);pointer-events:none;
+}
+.hero-top{
+  display:flex;justify-content:space-between;align-items:center;
+  position:relative;z-index:2;
+  padding-bottom:32px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.hero-top .left{display:flex;align-items:center;gap:14px}
+.hero-top .right{display:flex;gap:40px;font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;opacity:.55}
+.hero-top .right span b{color:var(--terracotta-2);font-weight:500}
+.hero-body{flex:1;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;padding:80px 0}
+.hero-eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--terracotta-2);display:flex;align-items:center;gap:16px;margin-bottom:36px;
+}
+.hero-eyebrow .bar{width:56px;height:1px;background:var(--terracotta)}
+.hero-title{
+  font-family:var(--sans);font-weight:700;font-size:104px;line-height:.98;letter-spacing:-0.035em;
+  max-width:1100px;color:var(--white);
+}
+.hero-title .i{color:var(--terracotta-2);font-weight:300;font-style:italic}
+.hero-title .thin{font-weight:300;color:rgba(255,255,255,.7)}
+.hero-lede{margin-top:36px;max-width:720px;font-size:22px;line-height:1.5;color:rgba(255,255,255,.78);font-weight:400}
+.hero-foot{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  padding-top:32px;border-top:1px solid rgba(255,255,255,.1);
+  position:relative;z-index:2;
+}
+.hero-facts{display:flex;gap:56px}
+.hero-facts .f{display:flex;flex-direction:column;gap:6px}
+.hero-facts .f .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta-2)}
+.hero-facts .f .v{font-family:var(--sans);font-weight:500;font-size:15px;color:var(--white)}
+.hero-foot .doc{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--white);opacity:.5;text-align:right}
+.hero-foot .doc .scroll{margin-top:10px;display:flex;align-items:center;gap:10px;justify-content:flex-end}
+.hero-foot .doc .scroll span{width:40px;height:1px;background:var(--terracotta)}
+
+/* ===== Tickers ===== */
+.ticker{
+  background:var(--slate);color:var(--white);
+  padding:14px 0;overflow:hidden;
+  font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);
+}
+.ticker .track{display:flex;gap:48px;white-space:nowrap;animation:tick 80s linear infinite;will-change:transform;padding-left:48px}
+.ticker .track span{display:inline-flex;align-items:center;gap:14px;opacity:.7}
+.ticker .track .d{width:5px;height:5px;background:var(--terracotta);border-radius:50%}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ===== 01 Context ===== */
+.context-split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.pressure-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--rule)}
+.pressure-list .item{
+  display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;
+  padding:24px 0;border-bottom:1px solid var(--rule);
+}
+.pressure-list .item .n{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--terracotta);font-weight:500}
+.pressure-list .item h4{font-family:var(--sans);font-weight:600;font-size:19px;line-height:1.35;color:var(--slate)}
+.emerging{display:flex;flex-direction:column;gap:14px;margin-top:40px}
+.emerging .row{display:flex;align-items:center;gap:16px}
+.emerging .row .dot{width:8px;height:8px;background:var(--terracotta);display:inline-block}
+.emerging .row .t{font-family:var(--sans);font-weight:500;font-size:17px;color:var(--slate)}
+
+/* ===== 02 Why now ===== */
+.gap-list{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);grid-template-columns:1fr}
+.gap-list .item{background:var(--paper);padding:32px 40px;display:grid;grid-template-columns:80px 1fr;gap:32px;align-items:center}
+.gap-list .item .n{font-family:var(--sans);font-weight:300;font-size:64px;color:var(--terracotta);line-height:1;letter-spacing:-0.02em}
+.gap-list .item .t{font-family:var(--sans);font-weight:600;font-size:22px;line-height:1.3;color:var(--slate)}
+
+/* ===== 03 Why Capella ===== */
+.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.pillar{background:var(--white);padding:40px 36px;display:flex;flex-direction:column;gap:20px;min-height:360px}
+.pillar .h{display:flex;justify-content:space-between;align-items:baseline}
+.pillar .n{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--terracotta);font-weight:600}
+.pillar .tag{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--graphite-2)}
+.pillar h4{font-family:var(--sans);font-weight:700;font-size:22px;line-height:1.25;color:var(--slate)}
+.pillar p{font-family:var(--sans);font-size:15.5px;line-height:1.55;color:var(--graphite)}
+.pillar .foot{margin-top:auto;padding-top:20px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--terracotta)}
+.pillar.feature{background:var(--slate);color:var(--white)}
+.pillar.feature h4{color:var(--white)}
+.pillar.feature p{color:rgba(255,255,255,.72)}
+.pillar.feature .foot{border-top-color:rgba(255,255,255,.15);color:var(--terracotta-2)}
+.pillar.feature .tag{color:rgba(255,255,255,.55)}
+.capella-quote{
+  margin-top:48px;padding:36px 40px;
+  background:var(--white-2);border-left:3px solid var(--terracotta);
+  display:flex;gap:40px;align-items:center;
+}
+.capella-quote .txt{font-family:var(--sans);font-weight:600;font-size:24px;line-height:1.35;color:var(--slate);flex:1;letter-spacing:-0.01em}
+.capella-quote .txt em{font-style:normal;color:var(--terracotta);font-weight:700}
+
+/* ===== 04 Opportunity (dark) ===== */
+.pivot{display:grid;grid-template-columns:1fr auto 1fr;gap:48px;align-items:center}
+.pivot .from{text-align:right}
+.pivot .from .k,.pivot .to .k{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta-2);margin-bottom:18px}
+.pivot .from .v{font-family:var(--sans);font-weight:300;font-size:56px;line-height:1;color:rgba(255,255,255,.5);letter-spacing:-0.02em}
+.pivot .arr{font-family:var(--sans);font-weight:200;font-size:64px;color:var(--terracotta);line-height:1}
+.pivot .to .v{font-family:var(--sans);font-weight:700;font-size:64px;line-height:1;letter-spacing:-0.025em}
+.pivot .to .v em{color:var(--terracotta-2);font-style:normal;font-weight:700}
+
+/* ===== 05 Boardroom ===== */
+.bf-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.city-card{background:var(--white);border:1px solid var(--rule);padding:40px;display:flex;flex-direction:column;gap:20px}
+.city-card .top{display:flex;justify-content:space-between;align-items:baseline}
+.city-card .top .t{font-family:var(--sans);font-weight:700;font-size:40px;line-height:1;letter-spacing:-0.02em}
+.city-card .top .d{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta)}
+.city-card ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.city-card li{display:flex;gap:14px;align-items:flex-start;font-family:var(--sans);font-size:15.5px;line-height:1.5;color:var(--graphite)}
+.city-card li::before{content:"→";color:var(--terracotta);font-family:var(--sans);font-weight:400;flex-shrink:0;margin-top:1px}
+.city-card .foot{margin-top:auto;padding-top:20px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--graphite-2)}
+
+/* ===== 06 Framework ownership (dark) ===== */
+.fw-role{display:grid;grid-template-columns:60% 40%;gap:64px;align-items:start}
+.fw-list{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);margin-top:32px}
+.fw-list .item{background:var(--slate);padding:28px 32px;display:grid;grid-template-columns:60px 1fr;gap:24px;align-items:baseline}
+.fw-list .item .n{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--terracotta-2);font-weight:600}
+.fw-list .item .h{font-family:var(--sans);font-weight:600;font-size:19px;line-height:1.35;color:var(--white);margin-bottom:6px}
+.fw-list .item .p{font-family:var(--sans);font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.65)}
+
+/* ===== 07 THREE MODELS · flip cards ===== */
+.models{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;perspective:1600px}
+.flip{
+  position:relative;min-height:520px;cursor:pointer;
+  transform-style:preserve-3d;
+  transition:transform .7s cubic-bezier(.2,.7,.2,1);
+}
+.flip:hover:not(.flipped){transform:translateY(-4px)}
+.flip.flipped{transform:rotateY(180deg)}
+.flip .face{
+  position:absolute;inset:0;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  padding:36px 32px;
+  display:flex;flex-direction:column;gap:20px;
+  border:1px solid var(--rule);
+  background:var(--white);
+}
+.flip .face.back{transform:rotateY(180deg);background:var(--slate);color:var(--white);border-color:var(--slate)}
+.flip .top{display:flex;justify-content:space-between;align-items:baseline}
+.flip .num{font-family:var(--sans);font-weight:300;font-size:68px;line-height:.9;color:var(--terracotta);letter-spacing:-0.03em}
+.flip .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--graphite-2)}
+.flip .back .tag{color:rgba(255,255,255,.55)}
+.flip h4{font-family:var(--sans);font-weight:700;font-size:30px;line-height:1.08;letter-spacing:-0.02em}
+.flip .back h4{color:var(--white)}
+.flip h4 em{font-style:normal;color:var(--terracotta);font-weight:300}
+.flip .back h4 em{color:var(--terracotta-2)}
+.flip p{font-family:var(--sans);font-size:15.5px;line-height:1.55;color:var(--graphite)}
+.flip .back p{color:rgba(255,255,255,.78)}
+.flip .viz{
+  flex:1;display:flex;align-items:center;justify-content:center;
+  border-top:1px solid var(--rule);margin-top:8px;padding-top:24px;
+}
+.flip .back .viz{border-top-color:rgba(255,255,255,.15)}
+.flip .foot{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:18px;border-top:1px solid var(--rule);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--terracotta);
+}
+.flip .back .foot{border-top-color:rgba(255,255,255,.15);color:var(--terracotta-2)}
+.flip .foot .hint{color:var(--graphite-2)}
+.flip .back .foot .hint{color:rgba(255,255,255,.5)}
+.flip .back ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.flip .back li{display:flex;gap:12px;font-family:var(--sans);font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.85);align-items:flex-start}
+.flip .back li::before{content:"✓";color:var(--terracotta-2);font-weight:600;flex-shrink:0}
+.flip .back .value{
+  margin-top:6px;padding:14px 16px;background:rgba(199,84,43,.12);border-left:2px solid var(--terracotta-2);
+  font-family:var(--sans);font-size:14px;line-height:1.5;color:var(--white);
+}
+.flip .back .value strong{color:var(--terracotta-2);font-weight:600;text-transform:uppercase;font-size:10.5px;letter-spacing:.2em;display:block;margin-bottom:4px;font-family:var(--mono)}
+
+/* Diagram: vertical schools */
+.dv{display:flex;flex-direction:column;gap:4px;align-items:center}
+.dv .floor{width:130px;height:12px;background:var(--slate)}
+.dv .floor:nth-child(2n){background:var(--terracotta)}
+.dv .base{width:170px;height:4px;background:var(--terracotta-3);margin-top:6px}
+.dv .stairs{width:30px;height:6px;background:var(--graphite);opacity:.4;margin-top:2px}
+
+/* Diagram: district */
+.dd{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:220px}
+.dd .u{aspect-ratio:1;background:var(--slate)}
+.dd .u.c{background:var(--terracotta)}
+.dd .u.h{background:var(--graphite);opacity:.4}
+
+/* Diagram: scalable */
+.ds{display:flex;gap:10px;align-items:flex-end}
+.ds .u{width:22px;background:var(--slate)}
+.ds .u.c{background:var(--terracotta)}
+
+/* ===== 08 FORMAT — Day Arc timeline ===== */
+.arc-wrap{margin-top:24px}
+.arc-rail{
+  position:relative;
+  display:grid;grid-template-columns:repeat(5,1fr);gap:0;
+  padding:0 0 60px;
+}
+.arc-line{
+  position:absolute;left:5%;right:5%;top:60px;height:2px;background:var(--rule);
+}
+.arc-line .fill{position:absolute;left:0;top:0;height:100%;width:100%;background:var(--terracotta);transform-origin:left;transform:scaleX(0);transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.arc-rail.in .arc-line .fill{transform:scaleX(1)}
+.arc-stop{
+  position:relative;display:flex;flex-direction:column;align-items:center;gap:16px;z-index:2;
+  padding:0 16px;
+}
+.arc-stop .node{
+  width:22px;height:22px;border:2px solid var(--terracotta);background:var(--white);border-radius:50%;
+  position:relative;margin-top:50px;
+  transition:background .3s, transform .3s;
+}
+.arc-stop .node::after{
+  content:"";position:absolute;inset:4px;border-radius:50%;background:var(--terracotta);
+  transform:scale(0);transition:transform .4s cubic-bezier(.2,.7,.2,1) var(--d,0s);
+}
+.arc-rail.in .arc-stop .node::after{transform:scale(1)}
+.arc-stop .time{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);font-weight:600;position:absolute;top:0;white-space:nowrap}
+.arc-stop .t{font-family:var(--sans);font-weight:700;font-size:19px;color:var(--slate);letter-spacing:-0.01em;text-align:center;line-height:1.25;margin-top:4px}
+.arc-stop .d{font-family:var(--sans);font-size:14px;line-height:1.45;color:var(--graphite);text-align:center;max-width:180px}
+.arc-stop:nth-child(1) .node{--d:0s}
+.arc-stop:nth-child(2) .node{--d:.3s}
+.arc-stop:nth-child(3) .node{--d:.6s}
+.arc-stop:nth-child(4) .node{--d:.9s}
+.arc-stop:nth-child(5) .node{--d:1.2s}
+
+/* Format stats */
+.fmt-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:72px}
+.fmt-stats .s{background:var(--white);padding:32px 36px;display:flex;flex-direction:column;gap:10px}
+.fmt-stats .s .n{font-family:var(--sans);font-weight:300;font-size:72px;line-height:1;color:var(--slate);letter-spacing:-0.03em}
+.fmt-stats .s .n em{color:var(--terracotta);font-style:normal;font-weight:400;font-size:32px;margin-left:6px}
+.fmt-stats .s .l{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta)}
+.fmt-stats .s .note{font-family:var(--sans);font-size:14.5px;line-height:1.5;color:var(--graphite)}
+
+/* ===== 09 Outcomes ===== */
+.oc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.oc-card{background:var(--white);padding:40px 36px;display:flex;flex-direction:column;gap:20px;min-height:360px}
+.oc-card .top{display:flex;justify-content:space-between;align-items:baseline}
+.oc-card .n{font-family:var(--sans);font-weight:300;font-size:60px;line-height:1;color:var(--terracotta);letter-spacing:-0.03em}
+.oc-card h4{font-family:var(--sans);font-weight:700;font-size:26px;line-height:1.15;letter-spacing:-0.015em}
+.oc-card p{font-family:var(--sans);font-size:15.5px;line-height:1.55;color:var(--graphite)}
+.oc-card ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.oc-card li{display:flex;gap:12px;font-family:var(--sans);font-size:15px;line-height:1.5;color:var(--graphite);align-items:flex-start}
+.oc-card li::before{content:"→";color:var(--terracotta);flex-shrink:0}
+.oc-card .foot{margin-top:auto;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta)}
+.oc-card.feature{background:var(--slate);color:var(--white)}
+.oc-card.feature h4{color:var(--white)}
+.oc-card.feature p{color:rgba(255,255,255,.75)}
+.oc-card.feature .foot{border-top-color:rgba(255,255,255,.15);color:var(--terracotta-2)}
+
+/* ===== 10 Content layer ===== */
+.cl-list{display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.cl-list .item{background:var(--white);padding:28px 36px;display:grid;grid-template-columns:80px 1fr 120px;gap:40px;align-items:center}
+.cl-list .item .n{font-family:var(--sans);font-weight:300;font-size:48px;line-height:1;color:var(--terracotta);letter-spacing:-0.03em}
+.cl-list .item h4{font-family:var(--sans);font-weight:700;font-size:22px;color:var(--slate);letter-spacing:-0.015em;margin-bottom:4px}
+.cl-list .item p{font-family:var(--sans);font-size:15px;line-height:1.5;color:var(--graphite)}
+.cl-list .item .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--graphite-2);text-align:right}
+
+/* ===== 11 Cities ===== */
+.cities{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+.cx{background:var(--white);border:1px solid var(--rule);padding:44px 40px;display:flex;flex-direction:column;gap:20px}
+.cx.dark{background:var(--slate);color:var(--white);border-color:var(--slate)}
+.cx .top{display:flex;justify-content:space-between;align-items:baseline}
+.cx .name{font-family:var(--sans);font-weight:700;font-size:48px;letter-spacing:-0.025em;line-height:1}
+.cx .tag{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta)}
+.cx.dark .tag{color:var(--terracotta-2)}
+.cx ul{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:4px}
+.cx li{display:flex;gap:14px;align-items:flex-start;font-family:var(--sans);font-size:17px;line-height:1.5;color:var(--graphite)}
+.cx.dark li{color:rgba(255,255,255,.78)}
+.cx li::before{content:"";width:8px;height:8px;background:var(--terracotta);margin-top:10px;flex-shrink:0}
+.cx.dark li::before{background:var(--terracotta-2)}
+.cx li strong{color:var(--slate);font-weight:600}
+.cx.dark li strong{color:var(--white)}
+.cx .foot{margin-top:auto;padding-top:20px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--graphite-2)}
+.cx.dark .foot{border-top-color:rgba(255,255,255,.15);color:rgba(255,255,255,.55)}
+
+/* ===== Image treatments ===== */
+.hero-image{
+  position:absolute;inset:0;overflow:hidden;z-index:0;
+}
+.hero-image img{
+  width:100%;height:100%;object-fit:cover;
+  opacity:.42;filter:saturate(.72) contrast(1.05);
+}
+.hero-image::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(15,27,45,.55) 0%, rgba(15,27,45,.82) 60%, rgba(15,27,45,.95) 100%),
+             linear-gradient(90deg, rgba(15,27,45,.82) 0%, rgba(15,27,45,.3) 60%, rgba(15,27,45,.0) 100%);
+}
+
+.img-card{position:relative;overflow:hidden;display:block}
+.img-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.2,.7,.2,1), filter .6s;filter:saturate(.82) contrast(1.02)}
+.img-card:hover img{transform:scale(1.03);filter:saturate(.95) contrast(1.05)}
+.img-card .cap{
+  position:absolute;left:0;right:0;bottom:0;padding:20px 24px;
+  background:linear-gradient(180deg, rgba(15,27,45,0) 0%, rgba(15,27,45,.82) 80%);
+  color:var(--white);display:flex;justify-content:space-between;align-items:flex-end;gap:12px;
+}
+.img-card .cap .t{font-family:var(--sans);font-weight:600;font-size:15px;letter-spacing:-0.005em}
+.img-card .cap .k{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta-2);font-weight:600}
+
+/* Split image+text block (for Boardroom / Return Blueprint) */
+.imgsplit{display:grid;grid-template-columns:1.1fr 1fr;gap:0;align-items:stretch;border:1px solid var(--rule)}
+.dark .imgsplit{border-color:rgba(255,255,255,.12)}
+.imgsplit.flip{grid-template-columns:1fr 1.1fr}
+.imgsplit .imgwrap{position:relative;min-height:440px;overflow:hidden;background:var(--slate)}
+.imgsplit .imgwrap img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.8) contrast(1.03)}
+.imgsplit .imgwrap .badge{
+  position:absolute;top:20px;left:20px;
+  padding:6px 12px;background:var(--terracotta);color:var(--white);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+}
+.imgsplit .txt{padding:48px 44px;display:flex;flex-direction:column;gap:20px;background:var(--white);justify-content:center}
+.dark .imgsplit .txt{background:var(--slate-2)}
+.paper .imgsplit .txt{background:var(--paper)}
+.imgsplit .txt .k{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);font-weight:600}
+.dark .imgsplit .txt .k{color:var(--terracotta-2)}
+.imgsplit .txt h4{font-family:var(--sans);font-weight:700;font-size:32px;letter-spacing:-0.02em;line-height:1.1;color:var(--slate)}
+.dark .imgsplit .txt h4{color:var(--white)}
+.imgsplit .txt h4 em{font-style:italic;font-weight:300;color:var(--terracotta)}
+.dark .imgsplit .txt h4 em{color:var(--terracotta-2)}
+.imgsplit .txt p{font-family:var(--sans);font-size:16px;line-height:1.55;color:var(--graphite)}
+.dark .imgsplit .txt p{color:rgba(255,255,255,.75)}
+.imgsplit .txt p strong{color:var(--slate);font-weight:600}
+.dark .imgsplit .txt p strong{color:var(--white)}
+
+/* Venue pair for cities */
+.venue-img{height:240px;margin-bottom:24px;overflow:hidden;position:relative}
+.venue-img img{width:100%;height:100%;object-fit:cover;filter:saturate(.82) contrast(1.03)}
+.venue-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(15,27,45,.35) 100%)}
+.cx .venue-img{margin:-44px -40px 24px}
+.cx.dark .venue-img::after{background:linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(15,27,45,.6) 100%)}
+
+/* Image strip for Next Step */
+.cta-strip{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border:1px solid rgba(255,255,255,.1)}
+.cta-strip .frame{aspect-ratio:4/3;overflow:hidden;background:var(--slate-2);position:relative}
+.cta-strip .frame img{width:100%;height:100%;object-fit:cover;opacity:.72;filter:saturate(.78) contrast(1.02)}
+.cta-strip .frame .lbl{position:absolute;bottom:14px;left:14px;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--white);opacity:.85;font-weight:600}
+
+/* ===== 12 RETURN / BUSINESS CASE ===== */
+.return-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--rule);border:1px solid var(--rule);
+  margin-top:8px;
+}
+.return-cell{background:var(--white);padding:32px 28px;display:flex;flex-direction:column;gap:10px;min-height:200px}
+.return-cell .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);font-weight:600}
+.return-cell .n{font-family:var(--sans);font-weight:300;font-size:52px;line-height:1;color:var(--slate);letter-spacing:-0.025em}
+.return-cell .n em{color:var(--terracotta);font-style:normal;font-weight:400;font-size:22px;margin-left:4px}
+.return-cell .n .unit{font-size:18px;opacity:.6;margin-left:4px;font-weight:400}
+.return-cell .l{font-family:var(--sans);font-weight:600;font-size:15px;color:var(--slate);letter-spacing:-0.005em;line-height:1.3}
+.return-cell .d{font-family:var(--sans);font-size:13.5px;line-height:1.5;color:var(--graphite);margin-top:auto;padding-top:12px;border-top:1px solid var(--rule)}
+
+.return-split{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:56px}
+.return-block{background:var(--white);border:1px solid var(--rule);padding:40px 40px 36px;display:flex;flex-direction:column;gap:20px}
+.return-block.dark{background:var(--slate);color:var(--white);border-color:var(--slate)}
+.return-block .head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:16px;border-bottom:1px solid var(--rule)}
+.return-block.dark .head{border-bottom-color:rgba(255,255,255,.15)}
+.return-block .head .k{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);font-weight:600}
+.return-block.dark .head .k{color:var(--terracotta-2)}
+.return-block .head h4{font-family:var(--sans);font-weight:700;font-size:26px;letter-spacing:-0.015em;line-height:1.1}
+.return-block.dark .head h4{color:var(--white)}
+.return-block ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.return-block li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:baseline;font-family:var(--sans);font-size:15.5px;line-height:1.5;color:var(--graphite)}
+.return-block.dark li{color:rgba(255,255,255,.78)}
+.return-block li .ln{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--terracotta);font-weight:600}
+.return-block.dark li .ln{color:var(--terracotta-2)}
+.return-block li strong{color:var(--slate);font-weight:600}
+.return-block.dark li strong{color:var(--white)}
+.return-block .kicker{
+  margin-top:6px;padding:16px 20px;
+  background:var(--white-2);border-left:3px solid var(--terracotta);
+  font-family:var(--sans);font-size:14.5px;line-height:1.5;color:var(--slate);font-weight:500;
+}
+.return-block.dark .kicker{background:rgba(255,255,255,.05);border-left-color:var(--terracotta-2);color:var(--white)}
+
+.oppy-list{
+  margin-top:56px;display:flex;flex-direction:column;gap:1px;
+  background:var(--rule);border:1px solid var(--rule);
+}
+.oppy-list .row{
+  background:var(--white);padding:26px 36px;
+  display:grid;grid-template-columns:72px 1fr 180px;gap:32px;align-items:center;
+}
+.oppy-list .row .n{font-family:var(--sans);font-weight:300;font-size:44px;line-height:1;color:var(--terracotta);letter-spacing:-0.025em}
+.oppy-list .row h5{font-family:var(--sans);font-weight:700;font-size:20px;letter-spacing:-0.01em;color:var(--slate);margin-bottom:4px}
+.oppy-list .row p{font-family:var(--sans);font-size:14.5px;line-height:1.5;color:var(--graphite)}
+.oppy-list .row .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--graphite-2);text-align:right}
+
+.return-verdict{
+  margin-top:56px;padding:36px 40px;
+  background:var(--terracotta);color:var(--white);
+  display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:center;
+}
+.return-verdict .k{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;opacity:.85;white-space:nowrap}
+.return-verdict .t{font-family:var(--sans);font-weight:700;font-size:24px;letter-spacing:-0.015em;line-height:1.3;max-width:760px}
+.return-verdict .arr{font-family:var(--sans);font-weight:200;font-size:40px;opacity:.8}
+
+/* ===== 12 PACKAGES (tiered) ===== */
+.pkg-tabs{
+  display:flex;gap:0;margin-top:12px;margin-bottom:32px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.04);
+}
+.pkg-tab{
+  flex:1;padding:18px 24px;
+  display:flex;flex-direction:column;gap:6px;align-items:flex-start;
+  font-family:var(--sans);
+  border-right:1px solid rgba(255,255,255,.12);
+  transition:background .25s, color .25s;
+  cursor:pointer;text-align:left;color:var(--white);
+  position:relative;
+}
+.pkg-tab:last-child{border-right:none}
+.pkg-tab .tab-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:500}
+.pkg-tab .tab-t{font-family:var(--sans);font-weight:600;font-size:17px;letter-spacing:-0.01em;color:var(--white);opacity:.8}
+.pkg-tab .tab-amt{font-family:var(--sans);font-weight:500;font-size:13.5px;color:rgba(255,255,255,.55);margin-top:2px}
+.pkg-tab:hover{background:rgba(255,255,255,.06)}
+.pkg-tab.active{background:var(--terracotta);border-right-color:var(--terracotta-3)}
+.pkg-tab.active .tab-k,
+.pkg-tab.active .tab-t,
+.pkg-tab.active .tab-amt{color:var(--white);opacity:1}
+.pkg-tab .flag{
+  position:absolute;top:-1px;right:-1px;
+  padding:4px 10px;background:var(--terracotta);color:var(--white);
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+  opacity:.92;
+}
+.pkg-tab.active .flag{background:var(--slate);color:var(--terracotta-2)}
+
+.pkg-panel{display:none}
+.pkg-panel.active{display:block;animation:pkgFade .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes pkgFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.pkg-head{
+  display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;
+  padding:28px 36px;
+  background:var(--slate-2);
+  border:1px solid rgba(255,255,255,.15);
+  border-bottom:2px solid var(--terracotta);
+}
+.pkg-head .l{display:flex;flex-direction:column;gap:8px}
+.pkg-head .pill{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta-2);font-weight:600;
+  display:inline-flex;align-items:center;gap:10px;
+}
+.pkg-head .pill .bar{width:24px;height:1px;background:var(--terracotta-2)}
+.pkg-head h4{font-family:var(--sans);font-weight:700;font-size:38px;letter-spacing:-0.02em;line-height:1.1;color:var(--white)}
+.pkg-head h4 em{font-style:italic;font-weight:300;color:var(--terracotta-2)}
+.pkg-head .r{text-align:right;display:flex;flex-direction:column;gap:6px}
+.pkg-head .r .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.pkg-head .r .amt{font-family:var(--sans);font-weight:300;font-size:56px;line-height:1;letter-spacing:-0.025em;color:var(--white);white-space:nowrap}
+.pkg-head .r .amt em{font-style:normal;font-size:26px;opacity:.55;margin:0 6px}
+.pkg-head .r .sub{font-family:var(--sans);font-size:13px;color:rgba(255,255,255,.6);font-weight:400}
+
+.pkg-subhead{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 36px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.12);border-top:none;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.65);
+}
+.pkg-subhead .r{color:var(--terracotta-2);font-weight:600}
+
+.pkg-body{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.12);border-top:none;
+}
+.pkg-body.full{grid-template-columns:1fr}
+.pkg-group{background:var(--slate);padding:32px 36px;display:flex;flex-direction:column;gap:16px}
+.pkg-group.plus{background:var(--slate-2)}
+.pkg-group .gh{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12);
+}
+.pkg-group .gh .n{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--terracotta-2);font-weight:600}
+.pkg-group .gh h5{font-family:var(--sans);font-weight:600;font-size:17px;letter-spacing:-0.01em;color:var(--white)}
+.pkg-group ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.pkg-group li{display:flex;gap:12px;font-family:var(--sans);font-size:15px;line-height:1.55;color:rgba(255,255,255,.82);align-items:flex-start}
+.pkg-group li::before{content:"";width:5px;height:5px;background:var(--terracotta);display:inline-block;margin-top:9px;flex-shrink:0;border-radius:50%}
+.pkg-group li strong{color:var(--white);font-weight:600}
+.pkg-group .tail{
+  margin-top:8px;padding-top:12px;border-top:1px dashed rgba(255,255,255,.12);
+  font-family:var(--sans);font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.6);font-style:italic;
+}
+
+.pkg-verdict{
+  margin-top:0;padding:28px 36px;
+  background:var(--terracotta);color:var(--white);
+  display:flex;justify-content:space-between;align-items:center;gap:32px;
+  border:1px solid var(--terracotta);border-top:none;
+}
+.pkg-verdict .l{display:flex;flex-direction:column;gap:6px}
+.pkg-verdict .l .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;opacity:.85;font-weight:600}
+.pkg-verdict .l .t{font-family:var(--sans);font-weight:700;font-size:22px;line-height:1.25;letter-spacing:-0.01em;max-width:640px}
+.pkg-verdict .r{font-family:var(--mono);font-size:28px;color:var(--white);opacity:.9;font-weight:300}
+
+.pkg-note{
+  margin-top:40px;padding:20px 28px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);
+  display:flex;gap:24px;align-items:center;
+}
+.pkg-note .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta-2);font-weight:600;flex-shrink:0}
+.pkg-note .t{font-family:var(--sans);font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.72)}
+
+/* ===== 14 COMPARE PACKAGES TABLE ===== */
+.cmp-wrap{margin-top:16px;overflow-x:auto;background:var(--white);border:1px solid var(--rule)}
+.cmp{width:100%;border-collapse:collapse;font-family:var(--sans);min-width:980px}
+.cmp thead th{
+  padding:28px 28px 24px;text-align:left;vertical-align:top;
+  background:var(--slate);color:var(--white);
+  border-right:1px solid rgba(255,255,255,.12);
+  position:sticky;top:0;z-index:2;
+}
+.cmp thead th:first-child{background:var(--slate-2)}
+.cmp thead th.recommended{background:var(--slate);position:relative}
+.cmp thead th.recommended::before{
+  content:"Recommended";position:absolute;top:0;left:0;right:0;
+  padding:5px 0;background:var(--terracotta);
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--white);text-align:center;font-weight:600;
+}
+.cmp thead th.recommended{padding-top:48px}
+.cmp thead th .opt{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta-2);font-weight:600;display:block;margin-bottom:8px}
+.cmp thead th .ttl{font-family:var(--sans);font-weight:700;font-size:20px;letter-spacing:-0.01em;color:var(--white);line-height:1.2;display:block}
+.cmp thead th .sub{font-family:var(--sans);font-size:13px;color:rgba(255,255,255,.62);display:block;margin-top:6px;font-weight:400;line-height:1.35}
+.cmp thead th .amt{display:block;margin-top:14px;font-family:var(--sans);font-weight:300;font-size:38px;line-height:1;color:var(--terracotta-2);letter-spacing:-0.02em}
+.cmp thead th:first-child .opt{color:rgba(255,255,255,.55)}
+.cmp thead th:first-child .ttl{color:var(--white);font-weight:500;font-size:14px;letter-spacing:.22em;text-transform:uppercase;font-family:var(--mono)}
+
+.cmp tbody .group-row td{
+  background:var(--white-2);
+  padding:14px 28px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--terracotta);font-weight:600;
+  border-bottom:1px solid var(--rule);border-top:1px solid var(--rule);
+}
+.cmp tbody td{
+  padding:18px 28px;vertical-align:top;
+  border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);
+  font-family:var(--sans);font-size:14.5px;line-height:1.55;color:var(--graphite);
+}
+.cmp tbody td:first-child{
+  background:var(--paper);
+  font-weight:600;color:var(--slate);font-size:14.5px;
+  width:260px;
+}
+.cmp tbody td:last-child{border-right:none}
+.cmp tbody tr:last-child td{border-bottom:none}
+.cmp td strong{color:var(--slate);font-weight:600}
+.cmp .check{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--terracotta);color:var(--white);font-weight:700;font-size:12px;flex-shrink:0;margin-right:10px}
+.cmp .dash{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;color:var(--graphite-2);font-weight:400;font-size:16px;border:1px solid var(--rule);border-radius:50%;flex-shrink:0;margin-right:10px}
+.cmp td .with{display:flex;align-items:flex-start;gap:0}
+.cmp td .with .txt{flex:1;padding-top:1px}
+.cmp tr.footer-row td{
+  background:var(--slate);color:var(--white);
+  padding:24px 28px;border-bottom:none;
+  font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+}
+.cmp tr.footer-row td:first-child{background:var(--slate-2)}
+.cmp tr.footer-row td.rec{background:var(--terracotta)}
+.cmp tr.footer-row .verdict{display:block;font-family:var(--sans);font-size:15px;letter-spacing:-0.005em;text-transform:none;font-weight:500;color:rgba(255,255,255,.85);margin-top:6px;line-height:1.4}
+.cmp tr.footer-row td.rec .verdict{color:var(--white)}
+
+.cmp-foot{
+  margin-top:32px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;
+  padding:28px 36px;background:var(--slate);color:var(--white);
+}
+.cmp-foot .l{font-family:var(--sans);font-size:16px;line-height:1.5;color:rgba(255,255,255,.8)}
+.cmp-foot .l strong{color:var(--white);font-weight:600}
+.cmp-foot .cta{
+  display:inline-flex;align-items:center;gap:12px;padding:14px 24px;
+  background:var(--terracotta);color:var(--white);
+  font-family:var(--sans);font-weight:600;font-size:14px;letter-spacing:.02em;
+  border:1px solid var(--terracotta);transition:background .2s;
+}
+.cmp-foot .cta:hover{background:var(--terracotta-3);border-color:var(--terracotta-3)}
+.cmp-foot .cta .arr{font-family:var(--mono)}
+
+/* ===== 13 Why this works ===== */
+.align{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.align-cell{background:var(--white);padding:40px 36px;display:flex;flex-direction:column;gap:16px;min-height:340px}
+.align-cell .k{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--graphite)}
+.align-cell .from{font-family:var(--sans);font-weight:300;font-size:30px;line-height:1.15;color:var(--slate);letter-spacing:-0.01em}
+.align-cell .arr{font-family:var(--sans);font-weight:200;font-size:36px;line-height:1;color:var(--terracotta)}
+.align-cell .to{font-family:var(--sans);font-weight:700;font-size:30px;line-height:1.15;color:var(--slate);letter-spacing:-0.015em}
+.align-cell .to em{font-style:normal;color:var(--terracotta)}
+.align-cell .p{font-family:var(--sans);font-size:14.5px;line-height:1.55;color:var(--graphite);margin-top:auto;padding-top:20px;border-top:1px solid var(--rule)}
+
+/* ===== 14 Next step / CTA ===== */
+.cta-wrap{text-align:center;max-width:800px;margin:0 auto;padding:80px 0}
+.cta-title{font-family:var(--sans);font-weight:700;font-size:80px;letter-spacing:-0.03em;line-height:1;color:var(--white)}
+.cta-title em{font-style:italic;font-weight:300;color:var(--terracotta-2)}
+.cta-sub{margin-top:28px;font-family:var(--sans);font-size:20px;line-height:1.55;color:rgba(255,255,255,.78);max-width:620px;margin-left:auto;margin-right:auto}
+.cta-steps{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.15);
+  margin-top:48px;text-align:left;
+}
+.cta-steps .step{background:var(--slate);padding:28px 28px;display:flex;flex-direction:column;gap:10px}
+.cta-steps .step .n{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--terracotta-2);font-weight:600}
+.cta-steps .step h5{font-family:var(--sans);font-weight:600;font-size:17px;line-height:1.35;color:var(--white);letter-spacing:-0.01em}
+.cta-button{
+  display:inline-flex;align-items:center;gap:16px;
+  margin-top:56px;
+  padding:22px 40px;
+  background:var(--terracotta);color:var(--white);
+  font-family:var(--sans);font-weight:600;font-size:17px;letter-spacing:.01em;
+  border:1px solid var(--terracotta);
+  transition:background .2s, transform .2s, box-shadow .3s;
+  position:relative;
+}
+.cta-button::after{
+  content:"";position:absolute;inset:-6px;border:1px solid var(--terracotta);opacity:0;transition:opacity .3s, inset .3s;
+}
+.cta-button:hover{background:var(--terracotta-3);border-color:var(--terracotta-3)}
+.cta-button:hover::after{opacity:.4;inset:-10px}
+.cta-button .arrow{font-family:var(--mono);font-weight:400}
+.cta-secondary{margin-top:16px;display:flex;gap:40px;justify-content:center;font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.cta-secondary a{border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:2px;transition:color .2s, border-color .2s}
+.cta-secondary a:hover{color:var(--terracotta-2);border-color:var(--terracotta-2)}
+
+.closing{
+  margin-top:120px;padding-top:56px;border-top:1px solid rgba(255,255,255,.1);
+  display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45)
+}
+
+/* ===== Reveal ===== */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* ===== 14 Compare packages ===== */
+.cmp-wrap{border:1px solid var(--rule);background:var(--white);overflow-x:auto}
+.cmp{width:100%;border-collapse:collapse;font-family:var(--sans);table-layout:fixed}
+.cmp thead th{
+  padding:24px 18px;vertical-align:top;text-align:left;
+  background:var(--slate);color:var(--white);
+  border-right:1px solid rgba(255,255,255,.1);
+  width:24%;
+}
+.cmp thead th:first-child{background:var(--slate-2);width:28%}
+.cmp thead th:last-child{border-right:none}
+.cmp thead th.recommended{background:var(--terracotta);position:relative}
+.cmp thead th.recommended::before{
+  content:"RECOMMENDED";position:absolute;top:8px;right:16px;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;font-weight:700;color:var(--white);opacity:.9;
+}
+.cmp thead .opt{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta-2);font-weight:600;margin-bottom:8px}
+.cmp thead th.recommended .opt{color:var(--white);opacity:.9}
+.cmp thead th:first-child .opt{color:rgba(255,255,255,.5)}
+.cmp thead .ttl{display:block;font-family:var(--sans);font-weight:700;font-size:17px;line-height:1.2;letter-spacing:-0.01em;color:var(--white);margin-bottom:6px}
+.cmp thead .sub{display:block;font-family:var(--sans);font-size:12.5px;line-height:1.45;color:rgba(255,255,255,.65);margin-bottom:14px}
+.cmp thead th.recommended .sub{color:rgba(255,255,255,.85)}
+.cmp thead .amt{display:block;font-family:var(--sans);font-weight:300;font-size:36px;letter-spacing:-0.02em;color:var(--white);line-height:1}
+.cmp thead th.recommended .amt{color:var(--white)}
+
+.cmp tbody tr.group-row td{
+  background:var(--white-2);
+  padding:14px 24px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--terracotta);font-weight:700;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+}
+.cmp tbody td{
+  padding:16px 18px;vertical-align:top;
+  font-family:var(--sans);font-size:13.5px;line-height:1.5;color:var(--slate);
+  border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);
+  background:var(--white);
+  word-wrap:break-word;overflow-wrap:break-word;
+}
+.cmp tbody td:last-child{border-right:none}
+.cmp tbody td:first-child{
+  background:var(--paper);color:var(--graphite);font-weight:500;font-size:14px;
+}
+.cmp tbody tr:nth-child(even) td:not(:first-child){background:var(--paper)}
+.cmp tbody td strong{color:var(--slate);font-weight:700}
+.cmp tbody td .with{display:flex;gap:10px;align-items:flex-start}
+.cmp tbody td .check{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:18px;height:18px;background:var(--terracotta);color:var(--white);
+  font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px;border-radius:50%;
+}
+.cmp tbody td .dash{
+  display:inline-block;color:var(--graphite-2);font-family:var(--mono);font-weight:500;margin-right:6px;
+}
+.cmp tbody td .txt{flex:1}
+
+.cmp tbody tr.footer-row td{
+  padding:24px;background:var(--slate);color:var(--white);font-weight:600;font-size:15.5px;
+  border-top:2px solid var(--terracotta);
+}
+.cmp tbody tr.footer-row td:first-child{
+  background:var(--slate-2);color:var(--terracotta-2);
+  font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;
+}
+.cmp tbody tr.footer-row td.rec{background:var(--terracotta)}
+.cmp tbody tr.footer-row td .verdict{
+  display:block;margin-top:10px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--terracotta-2);font-weight:500;
+}
+.cmp tbody tr.footer-row td.rec .verdict{color:rgba(255,255,255,.85)}
+
+.cmp-foot{
+  margin-top:32px;padding:28px 36px;
+  background:var(--slate);color:var(--white);
+  display:flex;gap:40px;align-items:center;justify-content:space-between;
+}
+.cmp-foot .l{font-family:var(--sans);font-size:15px;line-height:1.55;color:rgba(255,255,255,.82);flex:1}
+.cmp-foot .l strong{color:var(--white);font-weight:600}
+.cmp-foot .cmp-cta{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:14px 24px;background:var(--terracotta);color:var(--white);
+  font-family:var(--sans);font-weight:600;font-size:14px;letter-spacing:.02em;
+  border:1px solid var(--terracotta);white-space:nowrap;
+  transition:background .2s;
+}
+.cmp-foot .cmp-cta:hover{background:var(--terracotta-3);border-color:var(--terracotta-3)}
+.cmp-foot .cmp-cta span{font-family:var(--mono)}
+
+/* ===== 12 Distribution & Reach ===== */
+.dist-hero{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:stretch;
+  background:var(--slate);color:var(--white);
+  padding:48px;margin-bottom:0;
+  border:1px solid rgba(255,255,255,.12);
+}
+.dist-hero .l{display:flex;flex-direction:column;justify-content:space-between;gap:32px}
+.dist-hero .big{font-family:var(--sans);font-weight:300;font-size:108px;letter-spacing:-0.035em;line-height:.95;color:var(--white)}
+.dist-hero .big em{font-style:normal;color:var(--terracotta-2);font-weight:400;font-size:36px;margin-left:8px;letter-spacing:-0.01em}
+.dist-hero .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta-2);font-weight:600;margin-bottom:10px}
+.dist-hero .sub{font-family:var(--sans);font-size:15px;line-height:1.55;color:rgba(255,255,255,.72);margin-top:16px;max-width:340px}
+.dist-hero .r{border-left:1px solid rgba(255,255,255,.12);padding-left:40px;display:flex;flex-direction:column;gap:20px;justify-content:center}
+.dist-hero .r h4{font-family:var(--sans);font-weight:600;font-size:22px;line-height:1.3;color:var(--white);letter-spacing:-0.01em}
+.dist-hero .r p{font-family:var(--sans);font-size:15px;line-height:1.6;color:rgba(255,255,255,.75)}
+.dist-hero .proj-tag{display:inline-flex;align-items:center;gap:10px;padding:6px 12px;background:rgba(199,84,43,.12);border:1px solid rgba(199,84,43,.35);font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta-2);font-weight:600;align-self:flex-start}
+
+.dist-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--rule);border:1px solid var(--rule);border-top:none;margin-bottom:32px;
+}
+.dist-cell{background:var(--white);padding:28px 24px;display:flex;flex-direction:column;gap:10px;min-height:200px}
+.dist-cell .plat{display:flex;justify-content:space-between;align-items:baseline}
+.dist-cell .plat .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);font-weight:600}
+.dist-cell .plat .ico{font-family:var(--mono);font-size:10px;color:var(--graphite-2);letter-spacing:.15em}
+.dist-cell .name{font-family:var(--sans);font-weight:700;font-size:18px;letter-spacing:-0.01em;color:var(--slate)}
+.dist-cell .v{font-family:var(--sans);font-weight:400;font-size:28px;line-height:1.1;color:var(--slate);letter-spacing:-0.02em}
+.dist-cell .v em{font-style:normal;color:var(--terracotta);font-weight:600;font-size:15px;margin-left:6px;letter-spacing:0}
+.dist-cell .d{font-family:var(--sans);font-size:13px;line-height:1.5;color:var(--graphite);margin-top:auto;padding-top:10px;border-top:1px solid var(--rule)}
+
+.dist-mix{
+  display:grid;grid-template-columns:2fr 1fr;gap:32px;margin-top:32px;
+}
+.mix-card{background:var(--white);border:1px solid var(--rule);padding:32px 36px;display:flex;flex-direction:column;gap:20px}
+.mix-card h4{font-family:var(--sans);font-weight:700;font-size:20px;color:var(--slate);letter-spacing:-0.01em}
+.mix-bars{display:flex;flex-direction:column;gap:14px}
+.mix-bar{display:grid;grid-template-columns:160px 1fr 60px;gap:16px;align-items:center}
+.mix-bar .l{font-family:var(--sans);font-weight:500;font-size:14.5px;color:var(--slate)}
+.mix-bar .bar{height:10px;background:var(--rule-2);position:relative;overflow:hidden}
+.mix-bar .bar .fill{position:absolute;left:0;top:0;height:100%;background:var(--terracotta);transform-origin:left;transform:scaleX(0);transition:transform 1.4s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.mix-bar.in .bar .fill{transform:scaleX(var(--pct,1))}
+.mix-bar .pct{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--terracotta);text-align:right}
+.cpm-card{background:var(--slate);color:var(--white);padding:32px 36px;display:flex;flex-direction:column;gap:16px}
+.cpm-card .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta-2);font-weight:600}
+.cpm-card .v{font-family:var(--sans);font-weight:300;font-size:52px;letter-spacing:-0.025em;line-height:1;color:var(--white)}
+.cpm-card .v em{font-style:normal;color:var(--terracotta-2);font-size:20px;margin-left:6px;font-weight:500}
+.cpm-card .d{font-family:var(--sans);font-size:14px;line-height:1.55;color:rgba(255,255,255,.72);padding-top:14px;border-top:1px solid rgba(255,255,255,.15);margin-top:auto}
+
+.chan-list{margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.chan-cell{background:var(--white);padding:24px 28px;display:flex;flex-direction:column;gap:10px}
+.chan-cell .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);font-weight:600}
+.chan-cell h5{font-family:var(--sans);font-weight:700;font-size:16px;color:var(--slate);letter-spacing:-0.01em}
+.chan-cell ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.chan-cell li{font-family:var(--sans);font-size:12.5px;color:var(--graphite);padding:4px 10px;background:var(--paper);border:1px solid var(--rule)}
+
+/* ===== 13 Business Outcomes ===== */
+.biz-intro{
+  background:var(--slate);color:var(--white);padding:40px 48px;margin-bottom:32px;
+  display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;
+  border:1px solid rgba(255,255,255,.12);
+}
+.biz-intro .l h4{font-family:var(--sans);font-weight:700;font-size:28px;line-height:1.2;color:var(--white);letter-spacing:-0.015em}
+.biz-intro .l h4 em{font-style:italic;color:var(--terracotta-2);font-weight:300}
+.biz-intro .l p{font-family:var(--sans);font-size:15px;line-height:1.6;color:rgba(255,255,255,.75);margin-top:12px;max-width:620px}
+.biz-intro .r{font-family:var(--sans);font-weight:300;font-size:84px;color:var(--terracotta-2);letter-spacing:-0.03em;line-height:1}
+
+.deal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.deal{background:var(--white);padding:36px 40px;display:flex;flex-direction:column;gap:18px;min-height:280px}
+.deal .top{display:flex;justify-content:space-between;align-items:baseline}
+.deal .n{font-family:var(--sans);font-weight:300;font-size:52px;color:var(--terracotta);line-height:.9;letter-spacing:-0.02em}
+.deal .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--graphite)}
+.deal h4{font-family:var(--sans);font-weight:700;font-size:22px;line-height:1.2;letter-spacing:-0.015em;color:var(--slate)}
+.deal h4 em{font-style:normal;color:var(--terracotta);font-weight:300}
+.deal p{font-family:var(--sans);font-size:14.5px;line-height:1.6;color:var(--graphite)}
+.deal .metrics{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:auto}
+.deal .metrics .m{background:var(--paper);padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.deal .metrics .m .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--graphite)}
+.deal .metrics .m .v{font-family:var(--sans);font-weight:700;font-size:18px;color:var(--slate);letter-spacing:-0.01em}
+.deal .metrics .m .v em{font-style:normal;color:var(--terracotta);font-weight:500;font-size:12px;margin-left:4px}
+
+.rel-list{margin-top:32px;display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.rel-item{background:var(--white);padding:22px 32px;display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:center}
+.rel-item .n{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--terracotta);font-weight:600}
+.rel-item .t{font-family:var(--sans);font-weight:500;font-size:16px;color:var(--slate);letter-spacing:-0.005em}
+.rel-item .t strong{font-weight:700}
+.rel-item .v{font-family:var(--sans);font-weight:600;font-size:15px;color:var(--terracotta);white-space:nowrap}
+
+/* ===== 15 Metrics & Reporting ===== */
+.met-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:32px}
+.met-cell{background:var(--white);padding:28px;display:flex;flex-direction:column;gap:8px;min-height:170px}
+.met-cell .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);font-weight:600}
+.met-cell .v{font-family:var(--sans);font-weight:300;font-size:44px;color:var(--slate);line-height:1;letter-spacing:-0.025em}
+.met-cell .d{font-family:var(--sans);font-size:13px;line-height:1.55;color:var(--graphite);margin-top:auto}
+
+.rep-cadence{background:var(--slate);color:var(--white);padding:40px 48px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border:1px solid rgba(255,255,255,.12)}
+.rep-cadence .rc{display:flex;flex-direction:column;gap:12px;padding-right:24px;border-right:1px solid rgba(255,255,255,.12)}
+.rep-cadence .rc:last-child{border-right:none}
+.rep-cadence .rc .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta-2);font-weight:600}
+.rep-cadence .rc .t{font-family:var(--sans);font-weight:600;font-size:17px;color:var(--white);letter-spacing:-0.01em;line-height:1.25}
+.rep-cadence .rc .d{font-family:var(--sans);font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.72)}
+
+/* ===== 16 Investment — Anchor exclusive lock-up ===== */
+.excl-lock{
+  background:var(--slate-2);
+  border:1px solid rgba(255,255,255,.15);
+  padding:24px 32px;margin-top:20px;
+  display:flex;gap:18px;align-items:flex-start;
+}
+.excl-lock .lk{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:40px;height:40px;border:1px solid var(--terracotta-2);
+  font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--terracotta-2);font-weight:700;
+  flex-shrink:0;
+}
+.excl-lock .lt{font-family:var(--sans);font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.85)}
+.excl-lock .lt strong{color:var(--terracotta-2);font-weight:600;text-transform:uppercase;font-size:10.5px;letter-spacing:.22em;display:block;margin-bottom:4px;font-family:var(--mono)}
+
+/* ===== Smaller viewports (safety) ===== */
+@media(max-width:1100px){
+  .app{grid-template-columns:1fr}
+  .sidebar{position:relative;height:auto;flex-direction:row;flex-wrap:wrap;padding:16px}
+  .sb-nav{order:99;width:100%}
+  .hero-title{font-size:64px}
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+<!-- ================= SIDEBAR ================= -->
+<aside class="sidebar">
+  <div class="sb-brand">
+    <div class="sb-cobrand">
+      <div class="ei">EI</div>
+      <div class="x">×</div>
+      <div class="cap"><span class="dot"></span>CAPELLA</div>
+    </div>
+    <div class="sb-doc">
+      <div class="meta">§ Proposal · Confidential</div>
+      <div class="title">The Future of Campuses — South India Platform</div>
+    </div>
+  </div>
+  <nav class="sb-nav">
+    <ol>
+      <li><a href="#s-context" data-id="s-context"><span class="n">01</span>The Context</a></li>
+      <li><a href="#s-why-now" data-id="s-why-now"><span class="n">02</span>Why Now</a></li>
+      <li><a href="#s-why-capella" data-id="s-why-capella"><span class="n">03</span>Why Capella</a></li>
+      <li><a href="#s-opportunity" data-id="s-opportunity"><span class="n">04</span>The Opportunity</a></li>
+      <li><a href="#s-boardroom" data-id="s-boardroom"><span class="n">05</span>The Boardroom</a></li>
+      <li><a href="#s-role" data-id="s-role"><span class="n">06</span>Capella's Role</a></li>
+      <li><a href="#s-models" data-id="s-models"><span class="n">07</span>The 3 Models</a></li>
+      <li><a href="#s-format" data-id="s-format"><span class="n">08</span>The Format</a></li>
+      <li><a href="#s-cities" data-id="s-cities"><span class="n">09</span>Cities</a></li>
+      <li><a href="#s-distribution" data-id="s-distribution"><span class="n">10</span>Distribution &amp; Reach</a></li>
+      <li><a href="#s-return" data-id="s-return"><span class="n">11</span>The Return</a></li>
+      <li><a href="#s-metrics" data-id="s-metrics"><span class="n">12</span>Metrics &amp; Reporting</a></li>
+      <li><a href="#s-investment" data-id="s-investment"><span class="n">13</span>The Investment</a></li>
+      <li><a href="#s-compare" data-id="s-compare"><span class="n">14</span>Compare Packages</a></li>
+      <li><a href="#s-next" data-id="s-next"><span class="n">15</span>Next Step</a></li>
+    </ol>
+  </nav>
+  <div class="sb-foot">
+    <a href="#s-next" class="sb-cta">
+      Request Alignment Session
+      <span class="arrow">→</span>
+    </a>
+    <div class="sig">
+      <span>April 2026</span>
+      <span>Internal</span>
+    </div>
+  </div>
+</aside>
+
+<!-- ================= MAIN ================= -->
+<main class="main">
+
+<!-- ========= HERO ========= -->
+<section id="s-hero" class="hero" data-screen-label="00 Hero">
+  <div class="hero-image"><img src="assets/boardroom-hero.webp" alt=""></div>
+  <div class="hero-grid"></div>
+  <div class="hero-halo"></div>
+
+  <div class="hero-top">
+    <div class="left">
+      <div class="sb-cobrand" style="gap:14px">
+        <div class="ei">EI</div>
+        <div class="x" style="opacity:.5">×</div>
+        <div class="cap"><span class="dot"></span>CAPELLA</div>
+      </div>
+    </div>
+    <div class="right">
+      <span><b>Document</b> · Partnership Proposal</span>
+      <span><b>Prepared for</b> · Capella Leadership</span>
+      <span><b>Date</b> · April 2026</span>
+    </div>
+  </div>
+
+  <div class="hero-body">
+    <div class="hero-eyebrow"><span class="bar"></span><span>§ The Future of Campuses — South India Edition</span></div>
+    <h1 class="hero-title">
+      <span class="thin">Authored by</span> Capella.<br>
+      <span>The room where India's</span><br>
+      <span>next campuses get</span> <span class="i">decided.</span>
+    </h1>
+    <p class="hero-lede">
+      A two-city boardroom series — <strong style="color:var(--white)">Hyderabad · Bengaluru</strong> — where the models defining India's next decade of education infrastructure are debated, validated, and adopted.
+    </p>
+  </div>
+
+  <div class="hero-foot">
+    <div class="hero-facts">
+      <div class="f"><span class="k">Two cities</span><span class="v">Hyderabad · Bengaluru</span></div>
+      <div class="f"><span class="k">One room</span><span class="v">15+ principals per city</span></div>
+      <div class="f"><span class="k">One position</span><span class="v">Framework ownership</span></div>
+    </div>
+    <div class="doc">
+      <div>15 Sections · Single Document</div>
+      <div class="scroll"><span></span>Scroll to begin</div>
+    </div>
+  </div>
+</section>
+
+<!-- Ticker -->
+<div class="ticker">
+  <div class="track">
+    <span><i class="d"></i>Capella × EduInfra Series</span>
+    <span><i class="d"></i>Partnership Proposal · Confidential</span>
+    <span><i class="d"></i>Hyderabad + Bengaluru · 2026 Edition</span>
+    <span><i class="d"></i>Framework Ownership · Not Sponsorship</span>
+    <span><i class="d"></i>Three Models · One Decade</span>
+    <span><i class="d"></i>Request Alignment Session</span>
+    <span><i class="d"></i>Capella × EduInfra Series</span>
+    <span><i class="d"></i>Partnership Proposal · Confidential</span>
+    <span><i class="d"></i>Hyderabad + Bengaluru · 2026 Edition</span>
+    <span><i class="d"></i>Framework Ownership · Not Sponsorship</span>
+    <span><i class="d"></i>Three Models · One Decade</span>
+    <span><i class="d"></i>Request Alignment Session</span>
+  </div>
+</div>
+
+<!-- ========= 01 CONTEXT ========= -->
+<section id="s-context" class="sec" data-screen-label="01 Context">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="bar"></span><span><span class="sec-num">§ 01</span> · The Context</span></div>
+      <h2 class="title">India's education infrastructure is at an <span class="accent">inflection point.</span></h2>
+      <p class="lede">The economics of standalone campuses are breaking. At the same time, new infrastructure models are emerging — vertical, shared, and standardised.</p>
+    </div>
+
+    <div class="context-split">
+      <div class="reveal">
+        <div class="meta-lbl oc" style="margin-bottom:18px">Pressures on the old model</div>
+        <div class="pressure-list">
+          <div class="item">
+            <span class="n">01</span>
+            <h4>Land cost has crossed the threshold where <strong>standalone campus economics break</strong> — operators are now under-writing for vertical and shared formats.</h4>
+          </div>
+          <div class="item">
+            <span class="n">02</span>
+            <h4>Capital intensity has decoupled from operator balance sheets — <strong>expansion is increasingly capex-light, lease-driven.</strong></h4>
+          </div>
+          <div class="item">
+            <span class="n">03</span>
+            <h4>Demand for quality K-12 in Tier-1 + Tier-2 corridors is <strong>structurally outpacing supply</strong> — and the gap accelerates with every year of delayed format-shift, against NEP 2020's GER targets.</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="meta-lbl oc" style="margin-bottom:18px">What's emerging in its place</div>
+        <p class="body" style="font-size:17.5px">New infrastructure formats are taking shape — not theoretical, but already being piloted by operators, developers, and capital.</p>
+        <div class="emerging">
+          <div class="row"><span class="dot"></span><span class="t">Vertical urban campuses</span></div>
+          <div class="row"><span class="dot"></span><span class="t">Shared school districts</span></div>
+          <div class="row"><span class="dot"></span><span class="t">Scalable, standardised rollout formats</span></div>
+        </div>
+        <div style="margin-top:40px;padding:24px 28px;background:var(--white-2);border-left:3px solid var(--terracotta)">
+          <p class="body" style="color:var(--slate);font-weight:500;font-size:17px;line-height:1.5">
+            Education infrastructure is moving from <strong style="color:var(--terracotta)">isolated campuses</strong> to <strong>integrated systems</strong> built for <strong>scale, flexibility, and speed.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:64px;padding-top:48px;border-top:1px solid var(--rule)">
+      <div class="meta-lbl oc" style="margin-bottom:24px">What we're seeing across the EduInfra Series room</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+        <div style="padding-right:24px;border-right:1px solid var(--rule)">
+          <div style="font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);font-weight:600;margin-bottom:12px">OBSERVATION · 01</div>
+          <p style="font-family:var(--sans);font-size:15.5px;line-height:1.55;color:var(--slate);margin:0">School groups expanding from <strong>10–15 campuses to 50+ targets</strong> are running into the same wall — their existing capex stacks were never built for that scale. <strong>Asset-light infra partnerships are no longer optional.</strong></p>
+        </div>
+        <div style="padding-right:24px;border-right:1px solid var(--rule)">
+          <div style="font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);font-weight:600;margin-bottom:12px">OBSERVATION · 02</div>
+          <p style="font-family:var(--sans);font-size:15.5px;line-height:1.55;color:var(--slate);margin:0">Multiple education-infrastructure capital vehicles have been formed <strong>since 2023</strong> — each searching for the same scarce input: <strong>a defensible model to underwrite at scale.</strong></p>
+        </div>
+        <div>
+          <div style="font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);font-weight:600;margin-bottom:12px">OBSERVATION · 03</div>
+          <p style="font-family:var(--sans);font-size:15.5px;line-height:1.55;color:var(--slate);margin:0">Developers with land suited to education density are now <strong>leading the conversation</strong> — surfacing parcels to find pre-qualified anchors before going to RFP. <strong>The old "operator finds land" dynamic has flipped.</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= 02 WHY NOW ========= -->
+<section id="s-why-now" class="sec paper" data-screen-label="02 Why Now">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="bar"></span><span><span class="sec-num">§ 02</span> · Why This Matters Now</span></div>
+      <h2 class="title">This transition is not theoretical. <span class="accent">It is already underway.</span></h2>
+      <p class="lede">Operators are piloting vertical formats. Developers are assembling district plays. Capital is searching for fundable frameworks. But the market is moving ahead of the conversation — and 2026 is when the lead authorship gets claimed.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="meta-lbl oc" style="margin-bottom:16px">What the market does not yet have</div>
+      <div class="gap-list">
+        <div class="item"><span class="n">01</span><span class="t">A <strong style="color:var(--terracotta)">structured platform</strong> to evaluate these models — outside conference theatre.</span></div>
+        <div class="item"><span class="n">02</span><span class="t">A <strong style="color:var(--terracotta)">forum</strong> where operators, developers, and capital align on the same table.</span></div>
+        <div class="item"><span class="n">03</span><span class="t">A <strong style="color:var(--terracotta)">mechanism</strong> to convert ideas into real expansion decisions, on the record.</span></div>
+        <div class="item"><span class="n">04</span><span class="t">A <strong style="color:var(--terracotta)">named author</strong> for the framework the next decade gets built against.</span></div>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:48px;padding:28px 32px;background:var(--white-2);border-left:3px solid var(--terracotta)">
+      <p class="body" style="color:var(--slate);font-weight:500;font-size:17px;line-height:1.55;margin:0">
+        Why <strong style="color:var(--terracotta)">2026 specifically.</strong> The first wave of vertical-format operators are at proof-of-model. New education-infra capital vehicles are being formed. Brownfield capacity unlock has become urgent for established groups. The frameworks defining the next decade are being written this year — and there is no neutral, credentialed room where they get tested. <strong>That gap is what this platform fills.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========= 03 WHY CAPELLA ========= -->
+<section id="s-why-capella" class="sec" data-screen-label="03 Why Capella">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="bar"></span><span><span class="sec-num">§ 03</span> · Why Capella</span></div>
+      <h2 class="title">One of the few players <span class="accent">actively building</span> across this transition.</h2>
+      <p class="lede">Capella operates where most of the market still only theorises — greenfield origination, brownfield optimisation, and plug-and-play infrastructure under one operating lens.</p>
+    </div>
+
+    <div class="reveal" style="max-width:920px;margin:8px 0 56px;padding:28px 32px;background:var(--white-2);border-left:3px solid var(--terracotta)">
+      <p style="font-family:var(--sans);font-size:16.5px;line-height:1.6;color:var(--slate);margin:0;font-weight:400">
+        Indian education infrastructure has consultants, operators, landowners, and capital — sitting in different rooms. <strong style="color:var(--slate);font-weight:600">Very few firms operate across origination, optimisation, and infrastructure-as-a-product simultaneously.</strong> Capella is one of them — and that cross-cut is the source of the authority. Frameworks <em style="color:var(--terracotta);font-style:italic;font-weight:400">authored from inside the work,</em> not theorised from outside it.
+      </p>
+    </div>
+
+    <div class="pillar-grid reveal">
+      <div class="pillar">
+        <div class="h"><span class="n">01 · Origination</span><span class="tag">Land · Design · Delivery</span></div>
+        <h4>Greenfield Development</h4>
+        <p><strong>Land to delivery.</strong> Campuses conceived, structured and executed end-to-end.</p>
+        <div class="foot">Full-stack delivery</div>
+      </div>
+      <div class="pillar">
+        <div class="h"><span class="n">02 · Optimisation</span><span class="tag">Upgrade · Expand</span></div>
+        <h4>Brownfield Optimisation</h4>
+        <p><strong>Asset upgrades and expansion</strong> of existing campuses — unlocking capacity without new ground.</p>
+        <div class="foot">Capacity unlock</div>
+      </div>
+      <div class="pillar feature">
+        <div class="h"><span class="n">03 · Infrastructure</span><span class="tag">Build-to-Suit · Leasing</span></div>
+        <h4>Plug-and-Play Infrastructure</h4>
+        <p><strong>Build-to-suit and long-term leasing</strong> — campus infrastructure delivered as a scalable product.</p>
+        <div class="foot">Scalable product</div>
+      </div>
+    </div>
+
+    <div class="capella-quote reveal">
+      <div class="txt">Capella is not pushing a single model — <em>it is shaping the framework for how campuses get built going forward.</em></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= 04 OPPORTUNITY ========= -->
+<section id="s-opportunity" class="sec dark" data-screen-label="04 Opportunity">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="bar"></span><span><span class="sec-num">§ 04</span> · The Opportunity</span></div>
+      <h2 class="title" style="color:var(--white)">The pivot.</h2>
+    </div>
+
+    <div class="pivot reveal">
+      <div class="from">
+        <div class="k">From</div>
+        <div class="v">publishing<br>ideas</div>
+      </div>
+      <div class="arr">→</div>
+      <div class="to">
+        <div class="k">To</div>
+        <div class="v">owning the <em>room</em><br>where decisions <em>happen.</em></div>
+      </div>
+    </div>
+
+    <p class="lede reveal" style="margin:64px auto 0;text-align:center;max-width:720px">
+      Move from commentary to <strong style="color:var(--terracotta-2);font-weight:600">authorship</strong> — from a voice in the market to the framework underneath the conversation.
+    </p>
+
+    <div class="reveal" style="margin:72px auto 0;max-width:1100px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.12)">
+      <div style="padding:32px 28px;background:var(--slate)">
+        <div style="font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta-2);font-weight:600;margin-bottom:16px">In practice · 01</div>
+        <h4 style="font-family:var(--sans);font-weight:600;font-size:20px;line-height:1.3;color:var(--white);margin:0 0 12px;letter-spacing:-0.01em">The room where the operator who hires you in 2027 <em style="color:var(--terracotta-2);font-style:italic;font-weight:400">first hears your name.</em></h4>
+        <p style="font-family:var(--sans);font-size:14px;line-height:1.55;color:rgba(255,255,255,0.65);margin:0">Not a logo on a backdrop — a five-hour evening across one table, on the record.</p>
+      </div>
+      <div style="padding:32px 28px;background:var(--slate)">
+        <div style="font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta-2);font-weight:600;margin-bottom:16px">In practice · 02</div>
+        <h4 style="font-family:var(--sans);font-weight:600;font-size:20px;line-height:1.3;color:var(--white);margin:0 0 12px;letter-spacing:-0.01em">The room where the developer with the parcel <em style="color:var(--terracotta-2);font-style:italic;font-weight:400">surfaces it.</em></h4>
+        <p style="font-family:var(--sans);font-size:14px;line-height:1.55;color:rgba(255,255,255,0.65);margin:0">Land with intent finds its anchor before it goes to RFP — Capella as the pre-qualified counter-party.</p>
+      </div>
+      <div style="padding:32px 28px;background:var(--slate)">
+        <div style="font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta-2);font-weight:600;margin-bottom:16px">In practice · 03</div>
+        <h4 style="font-family:var(--sans);font-weight:600;font-size:20px;line-height:1.3;color:var(--white);margin:0 0 12px;letter-spacing:-0.01em">The room where capital decides the model is <em style="color:var(--terracotta-2);font-style:italic;font-weight:400">fundable.</em></h4>
+        <p style="font-family:var(--sans);font-size:14px;line-height:1.55;color:rgba(255,255,255,0.65);margin:0">PE, family offices, education-focused funds — evaluating a model debated by the operators who will run it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= 05 BOARDROOM ========= -->
+<section id="s-boardroom" class="sec" data-screen-label="05 Boardroom">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="bar"></span><span><span class="sec-num">§ 05</span> · The Platform · The Boardroom</span></div>
+      <h2 class="title">A two-city <span class="accent">Boardroom</span> series.</h2>
+      <p class="lede">A <strong>closed, high-trust environment</strong> where the next generation of campus models is debated, validated, and adopted.</p>
+    </div>
+
+    <div class="bf-grid">
+      <div class="city-card reveal">
+        <div class="top"><div class="t">Hyderabad</div><div class="d">City 01 · May 2026</div></div>
+        <div class="rule-tc"></div>
+        <ul>
+          <li>Emerging education corridors — new demand, new geographies</li>
+          <li>Land-driven expansion — the economics still permit scale</li>
+          <li>Strong potential for district &amp; township models</li>
+        </ul>
+        <div class="foot">First Edition</div>
+      </div>
+      <div class="city-card reveal">
+        <div class="top"><div class="t">Bengaluru</div><div class="d">City 02 · June 2026</div></div>
+        <div class="rule-tc"></div>
+        <ul>
+          <li>Mature operator ecosystem — depth of counter-parties</li>
+          <li>Premium education demand — willingness to pay is established</li>
+          <li>Ideal for scalable &amp; vertical models</li>
+        </ul>
+        <div class="foot">Second Edition</div>
+      </div>
+    </div>
+
+    <div class="imgsplit reveal" style="margin-top:56px">
+      <div class="imgwrap">
+        <span class="badge">The Room</span>
+        <img src="assets/boardroom-drawing-room.webp" alt="Closed-door boardroom">
+      </div>
+      <div class="txt">
+        <span class="k">What this looks like</span>
+        <h4>Fifteen principals. <em>One table.</em> Candlelight on the conversation that decides the decade.</h4>
+        <p>No stage. No branding. No audience. <strong>Just operators, developers and capital</strong> — working a model against live expansion plans, under the Chatham House rule.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= 06 CAPELLA'S ROLE ========= -->
+<section id="s-role" class="sec dark" data-screen-label="06 Capellas Role">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="bar"></span><span><span class="sec-num">§ 06</span> · Capella's Role · Framework Ownership</span></div>
+      <h2 class="title" style="color:var(--white)">Lead Author of the <span class="accent">Future of Campus Models</span> in India.</h2>
+      <p class="lede">This is <strong style="color:var(--white)">not a sponsorship role.</strong> It is a framework ownership position — the author of the lens through which the market evaluates what comes next.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="meta-lbl oc" style="margin-bottom:8px">In practice</div>
+      <div class="fw-list">
+        <div class="item">
+          <span class="n">01</span>
+          <div><div class="h">Capella introduces the key infrastructure models.</div><div class="p">The conceptual architecture of each conversation originates with Capella.</div></div>
+        </div>
+        <div class="item">
+          <span class="n">02</span>
+          <div><div class="h">The room engages through real expansion scenarios.</div><div class="p">Operators, developers and capital stress-test models against live projects.</div></div>
+        </div>
+        <div class="item">
+          <span class="n">03</span>
+          <div><div class="h">Anchored in applicability, scalability, and execution.</div><div class="p">No abstract panels. Every thread tied back to what actually ships.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= 07 THE 3 MODELS · FLIP CARDS ========= -->
+<section id="s-models" class="sec paper" data-screen-label="07 Three Models">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="bar"></span><span><span class="sec-num">§ 07</span> · The Core Theme</span></div>
+      <h2 class="title">"The Future of Campuses: <span class="accent">3 Models</span> Defining India's Next Decade."</h2>
+      <p class="lede">Click any card to reveal the value proposition — who builds it, where it wins, and why it matters.</p>
+    </div>
+
+    <div class="models reveal">
+      <!-- MODEL 01 -->
+      <div class="flip" data-flip>
+        <div class="face front">
+          <div class="top"><div class="num">01</div><div class="tag">Model · Vertical</div></div>
+          <h4>Vertical <em>Schools</em></h4>
+          <p><strong>Urban, space-efficient campuses</strong> built for dense city growth — multi-storey formats where land is the binding constraint.</p>
+          <div class="viz">
+            <div class="dv">
+              <div class="floor"></div><div class="floor"></div><div class="floor"></div>
+              <div class="floor"></div><div class="floor"></div><div class="floor"></div>
+              <div class="base"></div>
+            </div>
+          </div>
+          <div class="foot"><span>Density · Yield</span><span class="hint">Tap to flip →</span></div>
+        </div>
+        <div class="face back">
+          <div class="top"><div class="num" style="color:var(--terracotta-2)">01</div><div class="tag">Value Proposition</div></div>
+          <h4>Why it <em>wins.</em></h4>
+          <ul>
+            <li>Unlocks Tier-1 locations where horizontal land is priced out</li>
+            <li>Faster ramp — shorter build cycles, phased vertical delivery</li>
+            <li>Premium pricing power from prime addresses</li>
+          </ul>
+          <div class="value"><strong>For Capella</strong>Design-led vertical formats become Capella's signature deliverable — a category Capella can own outright.</div>
+          <div class="foot"><span>→ Design · Density · Delivery</span><span class="hint">← Tap to flip back</span></div>
+        </div>
+      </div>
+
+      <!-- MODEL 02 -->
+      <div class="flip" data-flip>
+        <div class="face front">
+          <div class="top"><div class="num">02</div><div class="tag">Model · District</div></div>
+          <h4>School <em>Districts</em></h4>
+          <p><strong>Clustered campuses with shared infrastructure</strong> and multi-operator ecosystems — the township logic applied to education.</p>
+          <div class="viz">
+            <div class="dd">
+              <div class="u"></div><div class="u c"></div><div class="u"></div>
+              <div class="u c"></div><div class="u h"></div><div class="u c"></div>
+              <div class="u"></div><div class="u c"></div><div class="u"></div>
+            </div>
+          </div>
+          <div class="foot"><span>Clustering · Sharing</span><span class="hint">Tap to flip →</span></div>
+        </div>
+        <div class="face back">
+          <div class="top"><div class="num" style="color:var(--terracotta-2)">02</div><div class="tag">Value Proposition</div></div>
+          <h4>Why it <em>wins.</em></h4>
+          <ul>
+            <li>Shared infrastructure spreads capex across multiple operators</li>
+            <li>Draws diverse educational brands into a single address</li>
+            <li>Landowner upside through long-horizon anchor leasing</li>
+          </ul>
+          <div class="value"><strong>For Capella</strong>Positions Capella as the master-planner — originating districts and curating the operators inside them.</div>
+          <div class="foot"><span>→ Plan · Curate · Anchor</span><span class="hint">← Tap to flip back</span></div>
+        </div>
+      </div>
+
+      <!-- MODEL 03 -->
+      <div class="flip" data-flip>
+        <div class="face front">
+          <div class="top"><div class="num">03</div><div class="tag">Model · Scalable</div></div>
+          <h4>Scalable Campus <em>Systems</em></h4>
+          <p><strong>Standardised, repeatable formats</strong> enabling rapid expansion across cities — campus as a deployable product.</p>
+          <div class="viz">
+            <div class="ds">
+              <div class="u" style="height:36px"></div>
+              <div class="u" style="height:56px"></div>
+              <div class="u c" style="height:76px"></div>
+              <div class="u" style="height:96px"></div>
+              <div class="u c" style="height:116px"></div>
+              <div class="u" style="height:136px"></div>
+              <div class="u c" style="height:156px"></div>
+            </div>
+          </div>
+          <div class="foot"><span>Repeatability · Speed</span><span class="hint">Tap to flip →</span></div>
+        </div>
+        <div class="face back">
+          <div class="top"><div class="num" style="color:var(--terracotta-2)">03</div><div class="tag">Value Proposition</div></div>
+          <h4>Why it <em>wins.</em></h4>
+          <ul>
+            <li>Productised templates collapse time-to-open from years to quarters</li>
+            <li>Capital-light expansion via build-to-suit + long leases</li>
+            <li>Brand continuity and operating parity across geographies</li>
+          </ul>
+          <div class="value"><strong>For Capella</strong>Turns Capella into the rollout infrastructure layer — the only path to national scale for branded operators.</div>
+          <div class="foot"><span>→ Standardise · Rollout</span><span class="hint">← Tap to flip back</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= 08 FORMAT — DINNER ARC ========= -->
+<section id="s-format" class="sec" data-screen-label="08 Format">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="bar"></span><span><span class="sec-num">§ 08</span> · The Format · The Boardroom Dinner</span></div>
+      <h2 class="title">From <span class="accent">Provoke</span> to <span class="accent">Commit</span> — the single arc of a Boardroom dinner.</h2>
+      <p class="lede">Each city edition runs as a curated, closed-door evening — a tight five-stage choreography across one table. Not a panel, not a networking dinner — a pre-execution decision forum, on the record.</p>
+    </div>
+
+    <div class="reveal" style="margin:0 auto 48px;max-width:1100px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)">
+      <div style="padding:20px 24px;background:var(--paper);text-align:center">
+        <div style="font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);font-weight:600;margin-bottom:6px">Stages</div>
+        <div style="font-family:var(--sans);font-weight:300;font-size:36px;line-height:1;letter-spacing:-0.025em;color:var(--slate)">5</div>
+      </div>
+      <div style="padding:20px 24px;background:var(--paper);text-align:center">
+        <div style="font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);font-weight:600;margin-bottom:6px">Hours</div>
+        <div style="font-family:var(--sans);font-weight:300;font-size:36px;line-height:1;letter-spacing:-0.025em;color:var(--slate)">3.5</div>
+      </div>
+      <div style="padding:20px 24px;background:var(--paper);text-align:center">
+        <div style="font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);font-weight:600;margin-bottom:6px">Principals at table</div>
+        <div style="font-family:var(--sans);font-weight:300;font-size:36px;line-height:1;letter-spacing:-0.025em;color:var(--slate)">15<em style="font-style:normal;font-size:22px;color:var(--terracotta);margin-left:2px">+</em></div>
+      </div>
+      <div style="padding:20px 24px;background:var(--paper);text-align:center">
+        <div style="font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);font-weight:600;margin-bottom:6px">Framework tested</div>
+        <div style="font-family:var(--sans);font-weight:300;font-size:36px;line-height:1;letter-spacing:-0.025em;color:var(--slate)">1</div>
+      </div>
+    </div>
+
+    <div class="arc-wrap reveal" id="arc">
+      <div class="arc-rail">
+        <div class="arc-line"><div class="fill"></div></div>
+        <div class="arc-stop">
+          <span class="time">19:00 · Arrive</span>
+          <div class="node"></div>
+          <div class="t">Provoke</div>
+          <div class="d">Welcome &amp; a single, disruptive framing question. No warm-up panels, no introductions theatre.</div>
+        </div>
+        <div class="arc-stop">
+          <span class="time">19:30 · Frame</span>
+          <div class="node"></div>
+          <div class="t">Present</div>
+          <div class="d">Capella introduces the three models — as structured frameworks, not pitches. 20 minutes, sharp.</div>
+        </div>
+        <div class="arc-stop">
+          <span class="time">20:15 · Dinner</span>
+          <div class="node"></div>
+          <div class="t">Pressure</div>
+          <div class="d">Operators &amp; capital test each model against live expansion plans — over the table, on the record.</div>
+        </div>
+        <div class="arc-stop">
+          <span class="time">21:30 · Apply</span>
+          <div class="node"></div>
+          <div class="t">Apply</div>
+          <div class="d">Real land opportunities mapped onto each model — applicability, execution, capital structure.</div>
+        </div>
+        <div class="arc-stop">
+          <span class="time">22:30 · Close</span>
+          <div class="node"></div>
+          <div class="t">Commit</div>
+          <div class="d">Where does the room align? Which conversations continue after the night?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fmt-stats reveal">
+      <div class="s">
+        <div class="n" data-counter="2">0</div>
+        <div class="l">Cities · Two Dinners</div>
+        <div class="note">Hyderabad · Bengaluru</div>
+      </div>
+      <div class="s">
+        <div class="n"><span data-counter="30">0</span><em>+</em></div>
+        <div class="l">Principals · Across Both Rooms</div>
+        <div class="note">Minimum 15 per city · operators, developers, capital</div>
+      </div>
+      <div class="s">
+        <div class="n" data-counter="3">0</div>
+        <div class="l">Models · One Framework</div>
+        <div class="note">Vertical · District · Scalable</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= 09 CITIES ========= -->
+<section id="s-cities" class="sec paper" data-screen-label="09 Cities">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="bar"></span><span><span class="sec-num">§ 09</span> · Geographic Focus</span></div>
+      <h2 class="title">Why <span class="accent">Hyderabad &amp; Bengaluru.</span></h2>
+      <p class="lede">Two cities, two distinct theses — together they cover the full spectrum of what South India's next decade of education infrastructure will look like.</p>
+    </div>
+
+    <div class="cities reveal">
+      <div class="cx">
+        <div class="venue-img"><img src="assets/quorum-hyderabad.webp" alt="Hyderabad venue"></div>
+        <div class="top"><div class="name">Hyderabad</div><div class="tag">City 01 · May 2026</div></div>
+        <ul>
+          <li><strong>Emerging corridors</strong> — new demand, new geographies.</li>
+          <li><strong>Land-driven expansion</strong> — the economics still permit scale.</li>
+          <li><strong>District &amp; township potential</strong> — multi-operator anchors.</li>
+        </ul>
+        <div class="foot">First Edition · The Quorum, Hyderabad</div>
+      </div>
+      <div class="cx dark">
+        <div class="venue-img"><img src="assets/farmlore-bangalore.webp" alt="Bengaluru venue"></div>
+        <div class="top"><div class="name">Bengaluru</div><div class="tag">City 02 · June 2026</div></div>
+        <ul>
+          <li><strong>Mature operator ecosystem</strong> — depth of counter-parties.</li>
+          <li><strong>Premium demand</strong> — willingness to pay is established.</li>
+          <li><strong>Scalable &amp; vertical formats</strong> — ideal fit.</li>
+        </ul>
+        <div class="foot">Second Edition · Farmlore, Bengaluru</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= 10 DISTRIBUTION & REACH ========= -->
+<section id="s-distribution" class="sec" data-screen-label="10 Distribution">
+  <div class="container" style="max-width:1300px">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="bar"></span><span><span class="sec-num">§ 10</span> · Distribution &amp; Reach</span></div>
+      <h2 class="title">Beyond the room — <span class="accent">6M+ owned impressions per season.</span></h2>
+      <p class="lede">The Boardroom is the anchor. The content layer is the compounding asset — distributed across the platforms where operators, capital, and developers actually consume content.</p>
+    </div>
+
+    <div class="dist-hero reveal">
+      <div class="l">
+        <div>
+          <div class="k">Total annual reach · 2026 season</div>
+          <div class="big">6.2M<em>+</em></div>
+          <div class="sub">Guaranteed impressions across YouTube, podcasts, LinkedIn, press &amp; newsletter — owned + earned combined.</div>
+        </div>
+        <div class="proj-tag"><span style="width:6px;height:6px;background:var(--terracotta-2);border-radius:50%;display:inline-block"></span>Projection · 2026 Season · Finalised with Capella</div>
+      </div>
+      <div class="r">
+        <h4>This is not sponsorship reach. This is <em style="color:var(--terracotta-2);font-style:normal">category-defining reach</em> — compounded across the 12 months Capella's framework travels.</h4>
+        <p>Each Boardroom generates 5 long-form episodes, 30+ short-form cut-downs, 2 city dossiers, quarterly newsletters, and PR syndication — distributed to the exact audiences Capella sells to.</p>
+      </div>
+    </div>
+
+    <div class="dist-grid reveal">
+      <!-- YouTube -->
+      <div class="dist-cell">
+        <div class="plat"><span class="k">01 · Video</span><span class="ico">▶</span></div>
+        <div class="name">YouTube</div>
+        <div class="v">850K<em>views</em></div>
+        <div class="d"><strong>10 long-form Boardroom episodes</strong> + 60+ shorts. Audience: education operators, EdTech founders, impact investors.</div>
+      </div>
+      <!-- Spotify / Apple -->
+      <div class="dist-cell">
+        <div class="plat"><span class="k">02 · Audio</span><span class="ico">♪</span></div>
+        <div class="name">Spotify · Apple · JioSaavn</div>
+        <div class="v">180K<em>listens</em></div>
+        <div class="d">Full audio distribution — <strong>commute-time consumption</strong> by operators, principals, and capital allocators.</div>
+      </div>
+      <!-- LinkedIn -->
+      <div class="dist-cell">
+        <div class="plat"><span class="k">03 · Professional</span><span class="ico">in</span></div>
+        <div class="name">LinkedIn</div>
+        <div class="v">4M<em>impr.</em></div>
+        <div class="d"><strong>C-suite amplification</strong> — EduInfra editorial + principal reshares + sponsored boost on Capella-authored frames.</div>
+      </div>
+      <!-- Newsletter -->
+      <div class="dist-cell">
+        <div class="plat"><span class="k">04 · Owned list</span><span class="ico">✉</span></div>
+        <div class="name">EduInfra Dispatch</div>
+        <div class="v">22K<em>subs</em></div>
+        <div class="d">Operators, developers, capital. <strong>Quarterly deep-dives</strong> · 38% average open · founder-authored.</div>
+      </div>
+      <!-- Press -->
+      <div class="dist-cell">
+        <div class="plat"><span class="k">05 · Earned</span><span class="ico">§</span></div>
+        <div class="name">Press Syndication</div>
+        <div class="v">12–18<em>placements</em></div>
+        <div class="d"><strong>ET · Mint · BS · Moneycontrol · The Ken</strong> — quote-level and feature-level inclusions per season.</div>
+      </div>
+      <!-- Co-distribution -->
+      <div class="dist-cell">
+        <div class="plat"><span class="k">06 · Partners</span><span class="ico">◇</span></div>
+        <div class="name">Co-distribution</div>
+        <div class="v">1.2M<em>reach</em></div>
+        <div class="d">Syndicated through <strong>VCCircle · Inc42 · YourStory · EdTech Review</strong> — reaching capital &amp; founder audiences.</div>
+      </div>
+      <!-- WhatsApp -->
+      <div class="dist-cell">
+        <div class="plat"><span class="k">07 · Back-channel</span><span class="ico">✱</span></div>
+        <div class="name">Principal Circles</div>
+        <div class="v">4<em>groups</em></div>
+        <div class="d"><strong>Curated WhatsApp / Telegram circles</strong> — where Indian education decisions actually get made. Closed. Invite-only.</div>
+      </div>
+      <!-- Conference -->
+      <div class="dist-cell">
+        <div class="plat"><span class="k">08 · Industry</span><span class="ico">◈</span></div>
+        <div class="name">Conference Syndication</div>
+        <div class="v">5<em>forums</em></div>
+        <div class="d">Replays &amp; frames syndicated across the <strong>EduInfra Series</strong> — <strong>Connect · Expand · Scale</strong> — and partner education forums.</div>
+      </div>
+    </div>
+
+    <div class="dist-mix reveal">
+      <div class="mix-card">
+        <div class="meta-lbl oc">Audience composition · By role</div>
+        <h4>Who actually sees this — not eyeballs, <span class="accent">decision-makers.</span></h4>
+        <div class="mix-bars">
+          <div class="mix-bar" data-pct=".42" style="--d:0s"><span class="l">School operators</span><span class="bar"><span class="fill"></span></span><span class="pct">42%</span></div>
+          <div class="mix-bar" data-pct=".22" style="--d:.15s"><span class="l">Developers · landowners</span><span class="bar"><span class="fill"></span></span><span class="pct">22%</span></div>
+          <div class="mix-bar" data-pct=".18" style="--d:.3s"><span class="l">Capital · PE · family offices</span><span class="bar"><span class="fill"></span></span><span class="pct">18%</span></div>
+          <div class="mix-bar" data-pct=".12" style="--d:.45s"><span class="l">Policy · advisory</span><span class="bar"><span class="fill"></span></span><span class="pct">12%</span></div>
+          <div class="mix-bar" data-pct=".06" style="--d:.6s"><span class="l">Press · analysts</span><span class="bar"><span class="fill"></span></span><span class="pct">6%</span></div>
+        </div>
+      </div>
+      <div class="cpm-card">
+        <div class="k">Equivalent media value</div>
+        <div class="v">₹48L<em>CPM-equivalent</em></div>
+        <div class="d">Cost of buying this targeted reach across <strong style="color:var(--white)">education B2B media</strong> via paid channels. Benchmarked against ET B2B rate card &amp; LinkedIn sponsored C-suite targeting.</div>
+      </div>
+    </div>
+
+    <div class="chan-list reveal">
+      <div class="chan-cell">
+        <div class="k">Formats delivered</div>
+        <h5>What the content layer produces</h5>
+        <ul>
+          <li>Boardroom ep.</li><li>Shorts</li><li>Frames</li><li>City dossiers</li><li>Quotes</li><li>Newsletter</li><li>Annual volume</li>
+        </ul>
+      </div>
+      <div class="chan-cell">
+        <div class="k">Distribution partners</div>
+        <h5>Where content travels</h5>
+        <ul>
+          <li>YouTube</li><li>Spotify</li><li>Apple</li><li>JioSaavn</li><li>LinkedIn</li><li>VCCircle</li><li>Inc42</li><li>YourStory</li><li>The Ken</li>
+        </ul>
+      </div>
+      <div class="chan-cell">
+        <div class="k">Press &amp; earned</div>
+        <h5>Syndication targets</h5>
+        <ul>
+          <li>Economic Times</li><li>Mint</li><li>Business Standard</li><li>Moneycontrol</li><li>ASSOCHAM</li><li>CII</li><li>FICCI</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= 11 THE RETURN — BUSINESS CASE ========= -->
+<section id="s-return" class="sec" data-screen-label="11 Return">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="bar"></span><span><span class="sec-num">§ 11</span> · The Return · What Capella Actually Walks Away With</span></div>
+      <h2 class="title">The business case, <span class="accent">in plain numbers.</span></h2>
+      <p class="lede">Before we talk investment — here is what the engagement produces. Four categories of return: <strong>tangible assets</strong>, <strong>reach</strong>, <strong>relationships</strong>, and <strong>business opportunities.</strong> Each is enumerable and persistent.</p>
+    </div>
+
+    <!-- ============ A · TANGIBLE ASSETS ============ -->
+    <div class="reveal">
+      <div class="meta-lbl oc" style="margin-bottom:16px">A · Tangible Assets Capella Owns After the Engagement</div>
+      <div class="return-grid">
+        <div class="return-cell">
+          <div class="k">Blueprint · Anchor Asset</div>
+          <div class="n">1</div>
+          <div class="l">The Capella Blueprint Book</div>
+          <div class="d"><strong>Hardbound annual volume.</strong> Capella-authored. Lead framework, case studies, the year's conclusions. A permanent boardroom-grade positioning asset.</div>
+        </div>
+        <div class="return-cell">
+          <div class="k">Long-form Video</div>
+          <div class="n">10 <em>eps</em></div>
+          <div class="l">Boardroom Episodes</div>
+          <div class="d">Full-length recordings of the principal conversations — 5 per city. Capella-fronted. Published to YouTube + distribution partners.</div>
+        </div>
+        <div class="return-cell">
+          <div class="k">Short-form</div>
+          <div class="n">60<span class="unit">+</span></div>
+          <div class="l">Cut-downs &amp; Provocations</div>
+          <div class="d">Provocations, quotes, model explainers — compounded across LinkedIn, Shorts, and press placements for 12 months.</div>
+        </div>
+        <div class="return-cell">
+          <div class="k">Research</div>
+          <div class="n">2</div>
+          <div class="l">City Dossiers</div>
+          <div class="d"><strong>Hyderabad + Bengaluru</strong> — market structure, land supply, demand pipeline, operator appetite. Capella co-badged.</div>
+        </div>
+      </div>
+
+      <div class="imgsplit flip" style="margin-top:32px;border-color:var(--rule)">
+        <div class="txt">
+          <span class="k">The Anchor Asset</span>
+          <h4>The Capella <em>Blueprint Book.</em></h4>
+          <p><strong>A hardbound annual volume</strong> — Capella-authored, distributed to <strong>2,000+ ecosystem leaders</strong>, CXOs and capital partners. The lead framework, the year's case studies, and the conclusions that the room actually committed to.</p>
+          <p>Not a coffee-table book. <strong>A reference document</strong> — designed to be cited in RFPs, JV conversations and term sheets as the volume matures across editions.</p>
+        </div>
+        <div class="imgwrap">
+          <span class="badge">Blueprint · Volume 01</span>
+          <img src="assets/blueprint-india-book.webp" alt="Blueprint book">
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ B · REACH ============ -->
+    <div class="return-split reveal">
+      <div class="return-block">
+        <div class="head">
+          <div class="k">B · Reach</div>
+          <h4>Where the content <span class="accent">lands.</span></h4>
+        </div>
+        <ul>
+          <li><span class="ln">01</span><span><strong>2,500+ ecosystem leaders</strong> in the EduInfra distribution list — operators, developers, capital</span></li>
+          <li><span class="ln">02</span><span><strong>50K+ LinkedIn audience</strong> across EduInfra &amp; partner channels — quarterly compound</span></li>
+          <li><span class="ln">03</span><span><strong>12-month shelf life</strong> on every asset — not a one-night event</span></li>
+          <li><span class="ln">04</span><span><strong>Press &amp; podcast syndication</strong> — 6–9 earned placements per edition · 12–18 across the season</span></li>
+          <li><span class="ln">05</span><span><strong>Blueprint Book printed for the 2,000+ ecosystem network</strong> — your tier allocation: 10 / 50 / 150 hardbound copies depending on package</span></li>
+        </ul>
+        <div class="kicker">Capella's thesis becomes <strong>referable</strong> — cited, quoted, shared inside the rooms it wants to sell into.</div>
+      </div>
+
+      <div class="return-block dark">
+        <div class="head">
+          <div class="k">C · Relationships · From the Dinners</div>
+          <h4>Who Capella is <em style="color:var(--terracotta-2);font-style:normal">in the room with.</em></h4>
+        </div>
+        <ul>
+          <li><span class="ln">01</span><span><strong>30+ principals across two cities</strong> · 15+ per city · Capella at the table, not on a stage</span></li>
+          <li><span class="ln">02</span><span><strong>5–8 pre-qualified school operators</strong> per city — expansion-stage, infra-partnership intent</span></li>
+          <li><span class="ln">03</span><span><strong>Developers &amp; landowners</strong> — actively sourcing education anchors</span></li>
+          <li><span class="ln">04</span><span><strong>Capital participants</strong> — PE, family offices, education-focused funds</span></li>
+          <li><span class="ln">05</span><span><strong>Curation input</strong> — Capella signs off on who enters the room</span></li>
+          <li><span class="ln">06</span><span><strong>Post-dinner continuity</strong> — introductions, follow-ups, warm handoffs</span></li>
+        </ul>
+        <div class="kicker">Not a mixer. <strong>Closed, named, pre-aligned.</strong> Every person in the room is a potential counter-party.</div>
+      </div>
+    </div>
+
+    <!-- ============ D · BUSINESS OPPORTUNITIES ============ -->
+    <div class="reveal" style="margin-top:64px">
+      <div class="meta-lbl oc" style="margin-bottom:16px">D · Business Opportunities That Emerge</div>
+      <div class="oppy-list">
+        <div class="row">
+          <div class="n">01</div>
+          <div>
+            <h5>Build-to-suit mandates with expansion-stage operators</h5>
+            <p>Operators in the room are <strong>actively planning 2–6 city expansions.</strong> Capella is the infra partner they meet there.</p>
+          </div>
+          <div class="tag">₹20–80 Cr · per mandate</div>
+        </div>
+        <div class="row">
+          <div class="n">02</div>
+          <div>
+            <h5>Land-to-campus origination with developers</h5>
+            <p>Developers surface parcels seeking education anchors. <strong>Capella becomes the pre-qualified counter-party.</strong></p>
+          </div>
+          <div class="tag">3–6 parcels · per edition</div>
+        </div>
+        <div class="row">
+          <div class="n">03</div>
+          <div>
+            <h5>Education district &amp; township co-development</h5>
+            <p>Larger-format conversations — <strong>master-planning mandates</strong> where Capella curates operators inside.</p>
+          </div>
+          <div class="tag">₹100–300 Cr · per district</div>
+        </div>
+        <div class="row">
+          <div class="n">04</div>
+          <div>
+            <h5>Capital partnerships &amp; fund formation</h5>
+            <p>PE / family office participants evaluating education infra. <strong>Capella positioned as GP or sourcing partner.</strong></p>
+          </div>
+          <div class="tag">₹20–100 Cr · per vehicle</div>
+        </div>
+        <div class="row">
+          <div class="n">05</div>
+          <div>
+            <h5>Brownfield capacity unlock engagements</h5>
+            <p>Existing campuses wanting to add floors, verticals, or boarding. <strong>Capella's optimisation practice is the fit.</strong></p>
+          </div>
+          <div class="tag">₹5–25 Cr · per project</div>
+        </div>
+        <div class="row">
+          <div class="n">06</div>
+          <div>
+            <h5>Category authorship &amp; pricing power</h5>
+            <p>Once Capella authors the framework, <strong>it is the default reference</strong> in RFPs, JV discussions, and term sheets.</p>
+          </div>
+          <div class="tag">Compounds annually</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="return-verdict reveal">
+      <div class="k">The Return Math</div>
+      <div class="t">A single build-to-suit mandate or one anchor district conversation <strong>pays back the engagement 10–40×.</strong> Everything else — the book, the episodes, the reach — is additive.</div>
+      <div class="arr">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= 12 METRICS & REPORTING ========= -->
+<section id="s-metrics" class="sec paper" data-screen-label="12 Metrics">
+  <div class="container" style="max-width:1300px">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="bar"></span><span><span class="sec-num">§ 12</span> · Metrics &amp; Reporting</span></div>
+      <h2 class="title">Accountability, <span class="accent">not adjectives.</span></h2>
+      <p class="lede">Every tier includes named KPIs, quarterly reporting to Capella leadership, and a defined check-in cadence. This is not a sponsorship — it's a managed engagement.</p>
+    </div>
+
+    <div class="met-grid reveal">
+      <div class="met-cell">
+        <div class="k">KPI · 01</div>
+        <div class="v">30+</div>
+        <div class="d"><strong>Named operator introductions</strong> across the 12 months — qualified, scheduled, tracked.</div>
+      </div>
+      <div class="met-cell">
+        <div class="k">KPI · 02</div>
+        <div class="v">6.2M+</div>
+        <div class="d"><strong>Impressions delivered</strong> — YouTube, podcast, LinkedIn, newsletter, press combined.</div>
+      </div>
+      <div class="met-cell">
+        <div class="k">KPI · 03</div>
+        <div class="v">10 <em style="font-style:normal;color:var(--terracotta);font-size:20px;font-weight:500">eps</em></div>
+        <div class="d"><strong>Long-form episodes published</strong> — Capella-fronted, distributed across platforms.</div>
+      </div>
+      <div class="met-cell">
+        <div class="k">KPI · 04</div>
+        <div class="v">2 <em style="font-style:normal;color:var(--terracotta);font-size:20px;font-weight:500">dossiers</em></div>
+        <div class="d"><strong>City research dossiers</strong> delivered — Hyderabad &amp; Bengaluru — Capella co-authored.</div>
+      </div>
+    </div>
+
+    <div class="rep-cadence reveal">
+      <div class="rc">
+        <div class="k">Q1 · Baseline</div>
+        <div class="t">Kick-off &amp; Framework Lock</div>
+        <div class="d">Joint session with Capella leadership. Annual theme locked, framework co-authored, principal shortlist reviewed.</div>
+      </div>
+      <div class="rc">
+        <div class="k">Q2 · Hyderabad</div>
+        <div class="t">Boardroom · Episode Cycle · Dossier</div>
+        <div class="d">Hyderabad edition executes. Post-event report within 30 days — intros made, deals surfaced, content published.</div>
+      </div>
+      <div class="rc">
+        <div class="k">Q3 · Bengaluru</div>
+        <div class="t">Second Boardroom · Amplification</div>
+        <div class="d">Bengaluru edition. Mid-cycle review on deal pipeline, content performance, and amplification mix.</div>
+      </div>
+      <div class="rc">
+        <div class="k">Q4 · Close</div>
+        <div class="t">Blueprint Book · Annual Readout</div>
+        <div class="d">Hardbound volume delivered. Year-end readout with Capella leadership — KPI reconciliation &amp; 2027 renewal conversation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= 13 INVESTMENT — THREE-TIER PACKAGES ========= -->
+<section id="s-investment" class="sec dark" data-screen-label="13 Investment">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="bar"></span><span><span class="sec-num">§ 13</span> · The Capella Package</span></div>
+      <h2 class="title" style="color:var(--white)">Three tiers. <span class="accent">One decision.</span></h2>
+      <p class="lede">From <strong style="color:var(--white)">city participation</strong> to <strong style="color:var(--white)">category leadership</strong> — each tier compounds on the last. Toggle to compare.</p>
+    </div>
+
+    <!-- Tier switcher -->
+    <div class="pkg-tabs reveal" role="tablist">
+      <button class="pkg-tab active" data-pkg="base" role="tab" aria-selected="true">
+        <span class="tab-k">Option 01 · Base</span>
+        <span class="tab-t">City Participation</span>
+        <span class="tab-amt">₹16L · Hyd + Blr</span>
+      </button>
+      <button class="pkg-tab" data-pkg="strategic" role="tab" aria-selected="false">
+        <span class="tab-k">Option 02 · Strategic</span>
+        <span class="tab-t">South India Platform Partner</span>
+        <span class="tab-amt">₹24L</span>
+      </button>
+      <button class="pkg-tab" data-pkg="anchor" role="tab" aria-selected="false">
+        <span class="flag">Founding · 2026</span>
+        <span class="tab-k">Option 03 · Anchor</span>
+        <span class="tab-t">Category Leadership Partner</span>
+        <span class="tab-amt">₹30L</span>
+      </button>
+    </div>
+
+    <!-- ============ OPTION 01 · BASE ============ -->
+    <div class="pkg-panel active" data-panel="base" role="tabpanel">
+      <div class="pkg-head">
+        <div class="l">
+          <div class="pill"><span class="bar"></span>Option 01 · Base</div>
+          <h4>City Edition Partner <em>— Hyderabad + Bengaluru</em></h4>
+        </div>
+        <div class="r">
+          <div class="k">Investment</div>
+          <div class="amt">₹16L</div>
+          <div class="sub">₹8L per city</div>
+        </div>
+      </div>
+      <div class="pkg-subhead"><span>Included</span><span class="r">Baseline Access + Positioning</span></div>
+      <div class="pkg-body">
+        <div class="pkg-group">
+          <div class="gh"><span class="n">01</span><h5>Boardroom Access</h5></div>
+          <ul>
+            <li><strong>2 closed-door Boardroom dinners</strong> — Hyd + Blr</li>
+            <li><strong>15+ curated participants</strong> per city</li>
+            <li>Direct access to <strong>school operators, developers, capital stakeholders</strong></li>
+          </ul>
+        </div>
+        <div class="pkg-group">
+          <div class="gh"><span class="n">02</span><h5>Positioning</h5></div>
+          <ul>
+            <li>Capella as <strong>City Host</strong> — named, not advertised</li>
+            <li>Presence across <strong>city episodes &amp; dossiers</strong></li>
+            <li><strong>2 leadership seats</strong> per city</li>
+          </ul>
+        </div>
+        <div class="pkg-group">
+          <div class="gh"><span class="n">03</span><h5>Content Layer</h5></div>
+          <ul>
+            <li><strong>10 Boardroom episodes</strong> — 5 per city</li>
+            <li>Brand presence across <strong>episodes, dossiers &amp; annual volume</strong></li>
+          </ul>
+        </div>
+        <div class="pkg-group">
+          <div class="gh"><span class="n">04</span><h5>Ecosystem Access</h5></div>
+          <ul>
+            <li>Entry into the <strong>curated EduInfra network</strong></li>
+            <li><strong>Introductions</strong> during and post-sessions</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pkg-verdict">
+        <div class="l"><div class="k">What this really is</div><div class="t">Presence — a credible reason to be in the room.</div></div>
+        <div class="r">→</div>
+      </div>
+    </div>
+
+    <!-- ============ OPTION 02 · STRATEGIC ============ -->
+    <div class="pkg-panel" data-panel="strategic" role="tabpanel">
+      <div class="pkg-head">
+        <div class="l">
+          <div class="pill"><span class="bar"></span>Option 02 · Strategic</div>
+          <h4>South India <em>Platform Partner</em></h4>
+        </div>
+        <div class="r">
+          <div class="k">Investment</div>
+          <div class="amt">₹24L</div>
+          <div class="sub">Everything in Base + authorship layer</div>
+        </div>
+      </div>
+      <div class="pkg-subhead"><span>Included · Everything in Base, plus</span><span class="r">Authorship · Deal Flow · Curation</span></div>
+      <div class="pkg-body">
+        <div class="pkg-group plus">
+          <div class="gh"><span class="n">01</span><h5>Narrative Ownership</h5></div>
+          <ul>
+            <li>Capella authors the <strong>Future of Campuses Framework</strong> — Vertical Schools · School Districts · Scalable Models — anchored across both editions</li>
+            <li>Capella <strong>opens the thematic frame</strong> at each Boardroom</li>
+            <li><strong>Lead voice</strong> across all 10 episodes (5 per city)</li>
+          </ul>
+        </div>
+        <div class="pkg-group plus">
+          <div class="gh"><span class="n">02</span><h5>Structured Influence + Curation</h5></div>
+          <ul>
+            <li>Capella <strong>anchors the conversation</strong> — models introduced, debated, validated</li>
+            <li>Input on <strong>who enters each room</strong> — operator selection aligned with Capella's strategy</li>
+          </ul>
+        </div>
+        <div class="pkg-group plus">
+          <div class="gh"><span class="n">03</span><h5>Deal Room Layer <span style="color:var(--terracotta-2);font-weight:500;font-size:10.5px;letter-spacing:.2em;margin-left:6px">· MOST IMPORTANT</span></h5></div>
+          <ul>
+            <li><strong>5–8 pre-qualified operators</strong> per city — expansion-stage institutions with infra partnership intent</li>
+            <li>Plus <strong>developers / landowners</strong> and <strong>select capital participants</strong></li>
+          </ul>
+          <div class="tail">This is not networking — this is <strong style="color:var(--terracotta-2);font-style:normal">targeted deal access.</strong></div>
+        </div>
+        <div class="pkg-group plus">
+          <div class="gh"><span class="n">04</span><h5>Post-Boardroom Continuity</h5></div>
+          <ul>
+            <li><strong>Curated introductions</strong> post-event + follow-up coordination on select opportunities</li>
+            <li><strong>Quarterly follow-up dinner</strong> hosted by EduInfra Series — continuity, not a one-time event</li>
+            <li>Access to the <strong>12-month principals' WhatsApp circle</strong></li>
+          </ul>
+        </div>
+        <div class="pkg-group plus">
+          <div class="gh"><span class="n">05</span><h5>Content &amp; Positioning</h5></div>
+          <ul>
+            <li><strong>Co-author credit</strong> on the annual Blueprint Book + <strong>50 hardbound copies</strong></li>
+            <li>Capella-framed narrative across <strong>60+ short-form cut-downs</strong></li>
+            <li>Capella co-authored framing in the city dossiers</li>
+            <li>Your <strong>Hyderabad project surfaces naturally</strong> in the Hyd conversation when relevant</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pkg-verdict">
+        <div class="l"><div class="k">What this really is</div><div class="t">Authorship of the framework the room debates + targeted deal access.</div></div>
+        <div class="r">→</div>
+      </div>
+    </div>
+
+    <!-- ============ OPTION 03 · ANCHOR ============ -->
+    <div class="pkg-panel" data-panel="anchor" role="tabpanel">
+      <div class="pkg-head">
+        <div class="l">
+          <div class="pill"><span class="bar"></span>Option 03 · Anchor · Founding Partner · 2026</div>
+          <h4>Category Leadership Partner <em>— South India</em></h4>
+        </div>
+        <div class="r">
+          <div class="k">Investment</div>
+          <div class="amt">₹30L</div>
+          <div class="sub">2026 inaugural edition · Founding Partner pricing</div>
+        </div>
+      </div>
+      <div class="pkg-subhead"><span>Included · Everything in Strategic, plus</span><span class="r">Hyderabad Showcase · Category Lock · Owned IP · Deal First-Look</span></div>
+      <div class="pkg-body">
+        <div class="pkg-group plus">
+          <div class="gh"><span class="n">01</span><h5>Hyderabad Project Showcase <em style="color:var(--terracotta-2);font-style:normal;font-size:10.5px;letter-spacing:.2em;margin-left:8px">· THE ANCHOR CASE</em></h5></div>
+          <ul>
+            <li>The Hyderabad Boardroom <strong>themed around Capella's Hyderabad transformation</strong> — your project as the live anchor case</li>
+            <li>One <strong>flagship episode</strong> dedicated to the project (long-form, Capella-led narrative)</li>
+            <li>Dedicated <strong>case-study chapter</strong> in the Hyderabad dossier</li>
+            <li><strong>Optional pre-dinner site visit</strong> — project conditions permitting</li>
+          </ul>
+          <div class="tail">The room arrives already engaged with Capella's project — operators, developers, and capital react to <strong style="color:var(--terracotta-2);font-style:normal">a real, named, photographable transformation,</strong> not a hypothetical.</div>
+        </div>
+        <div class="pkg-group plus">
+          <div class="gh"><span class="n">02</span><h5>Category Exclusivity · 2026 Season</h5></div>
+          <ul>
+            <li><strong>Sole education infrastructure voice</strong> across both editions — no competing infra firm in either room</li>
+            <li><strong>Category lock across the content layer</strong> — Capella is the singular infra voice across all 10 episodes, 60+ short-form cut-downs, and the Blueprint Book</li>
+            <li>Right of first refusal on <strong>2027 renewal</strong> before the season opens to other infra firms</li>
+          </ul>
+        </div>
+        <div class="pkg-group plus">
+          <div class="gh"><span class="n">03</span><h5>The Capella South India Report <em style="color:var(--terracotta-2);font-style:normal">— named, owned, annual</em></h5></div>
+          <ul>
+            <li><strong>A standalone research publication</strong> — "The Capella South India Report · 2026" — published under Capella's masthead, co-researched with EduInfra Series</li>
+            <li>Hyderabad + Bengaluru market intelligence: <strong>land pricing, operator density, demand mapping, regulatory signals</strong> — 60–80 pages, Capella-authored</li>
+            <li>Capella retains <strong>full IP &amp; distribution rights</strong> — use it in investor decks, boardroom conversations, PR, and BD for years beyond the season</li>
+            <li>Press launch &amp; syndication handled by EduInfra Series — targeted to ET, Mint, Moneycontrol, The Ken</li>
+          </ul>
+        </div>
+        <div class="pkg-group plus">
+          <div class="gh"><span class="n">04</span><h5>Co-Invest · Right of First Look + Advisory Seat</h5></div>
+          <ul>
+            <li><strong>First right to review every deal surfaced in the Boardrooms</strong> — BTS mandates, district co-developments, brownfield opportunities, capital syndication conversations</li>
+            <li>Structured <strong>48-hour review window</strong> before any deal is introduced to other capital in the room</li>
+            <li><strong>Advisory board seat</strong> on the EduInfra Series editorial board — permanent, named, across seasons</li>
+          </ul>
+        </div>
+        <div class="pkg-group plus">
+          <div class="gh"><span class="n">05</span><h5>Deeper Integration + Visibility</h5></div>
+          <ul>
+            <li><strong>Lead author credit</strong> on the annual Blueprint Book (vs. co-author in Strategic)</li>
+            <li><strong>150 hardbound copies</strong> of the Blueprint Book (vs. 50 in Strategic)</li>
+            <li>Priority placement in <strong>all platform communication</strong> + season-opening announcement</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="excl-lock">
+        <div class="lk">EXCL</div>
+        <div class="lt">
+          <strong>Why Anchor is structurally different</strong>
+          Anchor is not "more of Strategic" — it is a <strong style="color:var(--terracotta-2);text-transform:none;letter-spacing:0;font-family:var(--sans);font-size:inherit;font-weight:600">different category of engagement.</strong> Capella's Hyderabad project becomes the room's anchor case. Category lock prevents competitive dilution across both editions. The Capella South India Report is a permanent, ownable research asset Capella controls beyond the season. Co-invest right of first look converts the Boardrooms from a content property into a deal-flow engine. <strong style="color:var(--terracotta-2);text-transform:none;letter-spacing:0;font-family:var(--sans);font-size:inherit;font-weight:600">2026 Founding Partner pricing — renewal terms reviewed at season close.</strong>
+        </div>
+      </div>
+
+      <div class="pkg-verdict">
+        <div class="l"><div class="k">What this really is</div><div class="t">Capella's project as the anchor case + category lock + a named research asset Capella owns + first look on every deal.</div></div>
+        <div class="r">→</div>
+      </div>
+    </div>
+
+    <div class="pkg-note reveal">
+      <div class="k">Note</div>
+      <div class="t">All three tiers share the same two-city 2026 edition foundation — Hyderabad (May) &amp; Bengaluru (June). Each step up extends authorship, deal access, and category ownership. <strong style="color:var(--white)">Reading our conversation — Option 03 is built for Capella's specific situation: a framework to author and a project to showcase.</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= 14 COMPARE PACKAGES — FULL TABLE ========= -->
+<section id="s-compare" class="sec paper" data-screen-label="14 Compare">
+  <div class="container" style="max-width:1300px">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="bar"></span><span><span class="sec-num">§ 14</span> · Package Comparison · Detailed View</span></div>
+      <h2 class="title">All three packages. <span class="accent">Side by side.</span></h2>
+      <p class="lede">Every inclusion, every layer, every access point — on one page. Use this to compare fit against Capella's specific objectives.</p>
+    </div>
+
+    <div class="cmp-wrap reveal">
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th>
+              <span class="opt">Package</span>
+              <span class="ttl">Inclusions</span>
+            </th>
+            <th>
+              <span class="opt">Option 01 · Base</span>
+              <span class="ttl">City Participation</span>
+              <span class="sub">Baseline access + presence in the room</span>
+              <span class="amt">₹16L</span>
+            </th>
+            <th>
+              <span class="opt">Option 02 · Strategic</span>
+              <span class="ttl">South India Platform Partner</span>
+              <span class="sub">Authorship + targeted deal flow</span>
+              <span class="amt">₹24L</span>
+            </th>
+            <th>
+              <span class="opt">Option 03 · Anchor · Founding 2026</span>
+              <span class="ttl">Category Leadership Partner</span>
+              <span class="sub">Showcase + category lock + owned IP + deal first-look</span>
+              <span class="amt">₹30L</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="group-row"><td colspan="4">01 · Boardroom Access</td></tr>
+          <tr><td>Closed-door Boardroom dinners</td><td><span class="with"><span class="check">✓</span><span class="txt">2 dinners · Hyd + Blr</span></span></td><td><span class="with"><span class="check">✓</span><span class="txt">2 dinners · Hyd + Blr</span></span></td><td><span class="with"><span class="check">✓</span><span class="txt">2 dinners · <strong>Hyd themed around Capella's project</strong></span></span></td></tr>
+          <tr><td>Curated principals per city</td><td>15+ participants</td><td>15+ · <strong>with curation input</strong></td><td>15+ · <strong>full curation alignment</strong></td></tr>
+          <tr><td>Leadership seats at the table</td><td>2 seats per city</td><td>2 seats per city</td><td><strong>3 seats per city</strong> + flagship seat</td></tr>
+          <tr><td>Project as anchor case study</td><td><span class="dash">—</span></td><td><span class="dash">—</span> Surfaces naturally in conversation</td><td><span class="with"><span class="check">✓</span><span class="txt"><strong>Hyderabad transformation themed dinner</strong> + flagship episode + dossier chapter + optional site visit</span></span></td></tr>
+
+          <tr class="group-row"><td colspan="4">02 · Positioning</td></tr>
+          <tr><td>Brand role in the series</td><td><strong>City Host</strong></td><td><strong>Lead Author of Future Campus Models</strong></td><td><strong>Category Leadership Partner · South India</strong></td></tr>
+          <tr><td>Narrative ownership</td><td><span class="dash">—</span> Presence across episodes</td><td><span class="with"><span class="check">✓</span><span class="txt">Authors the <strong>Future of Campuses Framework</strong></span></span></td><td><span class="with"><span class="check">✓</span><span class="txt">Framework + <strong>season narrative prominence</strong></span></span></td></tr>
+          <tr><td>Three models authorship</td><td><span class="dash">—</span> Referenced, not authored</td><td><span class="with"><span class="check">✓</span><span class="txt">Vertical · District · Scalable</span></span></td><td><span class="with"><span class="check">✓</span><span class="txt">Full ownership + <strong>Edu Township focus</strong></span></span></td></tr>
+          <tr><td>Structured influence on agenda</td><td><span class="dash">—</span></td><td><span class="with"><span class="check">✓</span><span class="txt">Anchors the conversation</span></span></td><td><span class="with"><span class="check">✓</span><span class="txt">Anchors + sets thematic priorities</span></span></td></tr>
+          <tr><td>Category exclusivity · 2026 season</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="with"><span class="check">✓</span><span class="txt"><strong>Sole infra voice</strong> across both editions + 2027 ROFR</span></span></td></tr>
+
+          <tr class="group-row"><td colspan="4">03 · Deal Room Layer</td></tr>
+          <tr><td>Pre-qualified operators per city</td><td><span class="dash">—</span> General access</td><td><span class="with"><span class="check">✓</span><span class="txt"><strong>5–8 operators</strong> · expansion-stage</span></span></td><td><span class="with"><span class="check">✓</span><span class="txt"><strong>5–8 operators</strong> + extended meetings</span></span></td></tr>
+          <tr><td>Developer / landowner access</td><td>Through the room</td><td><strong>Targeted introductions</strong></td><td><strong>Higher involvement</strong> in infra structuring</td></tr>
+          <tr><td>Capital participants</td><td>Through the room</td><td>Select PE · family offices · funds</td><td>Priority + <strong>co-investment conversations</strong></td></tr>
+          <tr><td>Participant curation control</td><td><span class="dash">—</span></td><td><span class="with"><span class="check">✓</span><span class="txt">Input on who enters the room</span></span></td><td><span class="with"><span class="check">✓</span><span class="txt">Full curation alignment</span></span></td></tr>
+          <tr><td>Post-Boardroom continuity</td><td>Standard intros</td><td><strong>Curated follow-ups</strong> + quarterly dinner + WhatsApp circle</td><td><strong>Dedicated expansion track</strong></td></tr>
+          <tr><td>Co-invest right of first look</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="with"><span class="check">✓</span><span class="txt"><strong>48-hr first-review</strong> on every deal + advisory board seat</span></span></td></tr>
+
+          <tr class="group-row"><td colspan="4">04 · Content Layer</td></tr>
+          <tr><td>Boardroom episodes (long-form)</td><td><strong>10 episodes</strong> · 5 per city</td><td><strong>10 episodes</strong> · 5 per city · Capella as lead voice</td><td><strong>10 + 1 flagship Capella episode</strong> on Hyd project</td></tr>
+          <tr><td>Short-form cut-downs</td><td>60+ across 12 months</td><td>60+ · <strong>Capella-framed narrative</strong></td><td>60+ · <strong>priority placement</strong> + category lock</td></tr>
+          <tr><td>City dossiers (research)</td><td>2 dossiers · brand presence</td><td>2 · <strong>Capella co-authored framing</strong></td><td>2 · <strong>Capella-led chapter on Hyd project</strong></td></tr>
+          <tr><td>Capella Blueprint Book (annual)</td><td>Brand presence + 10 copies</td><td><strong>Co-author credit</strong> + 50 copies</td><td><strong>Lead author + foreword</strong> + 150 copies</td></tr>
+          <tr><td>Owned research publication</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="with"><span class="check">✓</span><span class="txt"><strong>The Capella South India Report</strong> · 60–80 pages · full IP retention · press syndication</span></span></td></tr>
+          <tr><td>Distribution reach</td><td>2,500+ ecosystem leaders · 50K+ LinkedIn</td><td>2,500+ · 50K+ + press</td><td>2,500+ · 50K+ + <strong>season comms</strong></td></tr>
+
+          <tr class="group-row"><td colspan="4">05 · Ecosystem Access</td></tr>
+          <tr><td>Entry into EduInfra network</td><td><span class="with"><span class="check">✓</span><span class="txt">Standard</span></span></td><td><span class="with"><span class="check">✓</span><span class="txt">Priority positioning</span></span></td><td><span class="with"><span class="check">✓</span><span class="txt">Anchor positioning</span></span></td></tr>
+          <tr><td>Introductions during &amp; post-sessions</td><td>Standard</td><td><strong>Coordinated &amp; curated</strong></td><td><strong>Sustained cadence</strong></td></tr>
+          <tr><td>Annual season visibility</td><td>Standard presence</td><td>Enhanced presence</td><td><strong>Season-wide prominence</strong></td></tr>
+
+          <tr class="group-row"><td colspan="4">06 · What This Really Is</td></tr>
+          <tr class="footer-row">
+            <td>Strategic verdict</td>
+            <td>Presence<span class="verdict">Be in the room · build relationships</span></td>
+            <td>Authorship<span class="verdict">Author the framework · source the pipeline</span></td>
+            <td>Showcase + category lead<span class="verdict">Capella's project as the anchor case · own the category</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cmp-foot reveal">
+      <div class="l">All three packages share the <strong>same two-city 2026 foundation</strong> — Hyderabad (May) &amp; Bengaluru (June). Each step up extends authorship, deal access, and category ownership. <strong>One build-to-suit mandate pays back Option 03 by 10–40×.</strong> Anchor pricing is <strong>2026 Founding Partner</strong> — renewal terms reviewed at season close.</div>
+      <a href="#s-next" class="cmp-cta">Request Alignment Session<span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ========= 15 ALIGNMENT ========= -->
+<!-- ========= 15 NEXT STEP / CTA ========= -->
+<section id="s-next" class="sec dark" data-screen-label="15 Next Step" style="padding:120px 96px 96px;overflow:hidden;position:relative">
+  <div class="hero-halo" style="top:-200px;right:-100px;width:700px;height:700px"></div>
+  <div class="container reveal" style="position:relative">
+    <div class="cta-wrap">
+      <div class="eyebrow" style="justify-content:center"><span class="bar"></span><span><span class="sec-num">§ 15</span> · Next Step</span></div>
+      <h2 class="cta-title" style="margin-top:32px">If this direction <em>aligns.</em></h2>
+      <p class="cta-sub">
+        This is not about participating in the conversation — <strong style="color:var(--white)">it is about shaping how the market thinks, and how it builds.</strong>
+      </p>
+
+      <div class="cta-steps">
+        <div class="step"><span class="n">01</span><h5>Lock Hyderabad &amp; Bengaluru for the 2026 edition.</h5></div>
+        <div class="step"><span class="n">02</span><h5>Align on participants and discussion themes.</h5></div>
+        <div class="step"><span class="n">03</span><h5>Structure the engagement with your team.</h5></div>
+      </div>
+
+      <div style="max-width:880px;margin:48px auto 40px;padding:24px 32px;background:rgba(199,84,43,0.08);border:1px solid rgba(199,84,43,0.35);text-align:left;display:flex;align-items:center;gap:24px">
+        <div style="font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta-2);font-weight:600;white-space:nowrap;border-right:1px solid rgba(255,255,255,0.18);padding-right:24px">2026 Founding Partner · Timing</div>
+        <p style="font-family:var(--sans);font-size:14.5px;line-height:1.55;color:rgba(255,255,255,0.82);margin:0">
+          Founding Partner alignment closes <strong style="color:var(--white)">ahead of Hyderabad season open in May 2026.</strong> Curation locks <strong style="color:var(--white)">six weeks prior</strong> — earlier confirmations get first input on participant selection and category exclusivity.
+        </p>
+      </div>
+
+      <a href="mailto:partnerships@eduinfraconnect.com?subject=Capella%20%C3%97%20EduInfra%20%E2%80%94%20Alignment%20Session" class="cta-button">
+        Request Alignment Session
+        <span class="arrow">→</span>
+      </a>
+
+      <div class="cta-secondary">
+        <a href="#s-hero">Return to top</a>
+        <a href="mailto:partnerships@eduinfraconnect.com">partnerships@eduinfraconnect.com</a>
+      </div>
+
+      <div class="cta-strip">
+        <div class="frame"><img src="assets/quorum-hyderabad.webp" alt=""><span class="lbl">Hyderabad · May 2026</span></div>
+        <div class="frame"><img src="assets/boardroom-drawing-room.webp" alt=""><span class="lbl">The Room</span></div>
+        <div class="frame"><img src="assets/farmlore-bangalore.webp" alt=""><span class="lbl">Bengaluru · June 2026</span></div>
+      </div>
+    </div>
+
+    <div class="closing">
+      <span>Capella × EduInfra Series · Partnership Proposal</span>
+      <span>End of Document · April 2026</span>
+    </div>
+  </div>
+</section>
+
+</main>
+</div>
+
+<script>
+(function(){
+  // ===== Sidebar active state via IntersectionObserver =====
+  const links = document.querySelectorAll('.sb-nav a[data-id]');
+  const linkById = {};
+  links.forEach(l=>{ linkById[l.dataset.id]=l; });
+  const targets = Array.from(links).map(l=>document.getElementById(l.dataset.id)).filter(Boolean);
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        const id = en.target.id;
+        links.forEach(l=>l.classList.remove('active'));
+        if(linkById[id]) linkById[id].classList.add('active');
+      }
+    });
+  }, {rootMargin:'-40% 0px -55% 0px', threshold:0});
+  targets.forEach(t=>io.observe(t));
+
+  // ===== Reveal on scroll =====
+  const rio = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){ en.target.classList.add('in'); rio.unobserve(en.target); }
+    });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>rio.observe(el));
+
+  // ===== Day Arc rail animation =====
+  const arcRail = document.querySelector('#arc .arc-rail');
+  if(arcRail){
+    const arcIo = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{
+        if(en.isIntersecting){ arcRail.classList.add('in'); arcIo.unobserve(arcRail); }
+      });
+    }, {threshold:.3});
+    arcIo.observe(arcRail);
+  }
+
+  // ===== Animated counters =====
+  const counters = document.querySelectorAll('[data-counter]');
+  counters.forEach(c=>{
+    const io2 = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{
+        if(!en.isIntersecting) return;
+        io2.unobserve(c);
+        const target = parseInt(c.dataset.counter,10);
+        const dur = 1400;
+        const start = performance.now();
+        function step(t){
+          const p = Math.min(1,(t-start)/dur);
+          const eased = 1 - Math.pow(1-p,3);
+          c.textContent = Math.round(target*eased).toString();
+          if(p<1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    },{threshold:.4});
+    io2.observe(c);
+  });
+
+  // ===== Flip cards =====
+  document.querySelectorAll('[data-flip]').forEach(card=>{
+    card.addEventListener('click', ()=> card.classList.toggle('flipped'));
+    card.setAttribute('tabindex','0');
+    card.setAttribute('role','button');
+    card.setAttribute('aria-label','Flip card to view value proposition');
+    card.addEventListener('keydown', (e)=>{
+      if(e.key===' '||e.key==='Enter'){ e.preventDefault(); card.classList.toggle('flipped'); }
+    });
+  });
+
+  // ===== Package tier switcher =====
+  const pkgTabs = document.querySelectorAll('.pkg-tab');
+  const pkgPanels = document.querySelectorAll('.pkg-panel');
+  pkgTabs.forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      const id = tab.dataset.pkg;
+      pkgTabs.forEach(t=>{ t.classList.toggle('active', t===tab); t.setAttribute('aria-selected', t===tab ? 'true':'false'); });
+      pkgPanels.forEach(p=>p.classList.toggle('active', p.dataset.panel===id));
+    });
+  });
+
+  // Smooth scroll for sidebar nav
+  links.forEach(l=>{
+    l.addEventListener('click', (e)=>{
+      const id = l.dataset.id;
+      const target = document.getElementById(id);
+      if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
